@@ -12,6 +12,30 @@
         $arrival = $row['ARRIVAL_TIME'];
         $departure = $row['DEPARTURE_TIME'];
         
+        $sql = "SELECT COUNT(TICKET_ID) AS SOLD FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
+                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class'";
+        $stid = oci_parse($conn, $sql);
+        oci_execute($stid);
+        $row = oci_fetch_assoc($stid);
+        $seatSold = $row['SOLD'];
+
+        $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
+        $stid2 = oci_parse($conn, $sql2);
+        oci_execute($stid2);
+        $data = oci_fetch_assoc($stid2);
+        $totalBlocks = $data['CBID'];
+
+
+        $availableSeats = $totalBlocks*30 - $seatSold;
+        if($availableSeats > 0){
+            $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
+                    SID NOT IN 
+                    (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
+                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
+                    WHERE ROWNUM = 1";
+        }
+        
+
     }
 ?>
 
