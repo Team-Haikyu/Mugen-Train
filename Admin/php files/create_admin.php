@@ -4,8 +4,8 @@
     if(isset($_POST['submit'])){
         $EMAIL = $_POST['email'];
 
-        require_once '../connect/db_connect.php';
-        require_once 'functions/functionsForAdmin.php';
+        require '../../connect/db_connect.php';
+        require '../functions/functionsForAdmin.php';
 
         createAdmin($EMAIL);
     }

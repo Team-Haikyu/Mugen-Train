@@ -6,8 +6,8 @@
         $DEST = $_POST['dest'];
         $FARE = $_POST['fare'];
 
-        require_once '../connect/db_connect.php';
-        require_once 'functions/functionsForAdmin.php';
+        require '../../connect/db_connect.php';
+        require '../functions/functionsForAdmin.php';
 
         createRoute($SOURCE, $DEST, $FARE);
     }
