@@ -130,7 +130,7 @@
       <div class="card" style="margin:8%">
         <div class="card-header">
           <h3>Add Train
-          <img src="../../Images/addtrain1.png" style="float: right;" height="60px" width="60px" alt="">
+          <img src="../../Images/block2.png" style="float: right;" height="60px" width="60px" alt="">
           </h3>
         </div>
         <div class="card-body">
