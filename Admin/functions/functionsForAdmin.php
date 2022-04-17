@@ -34,10 +34,10 @@
         exit();
     }
     }
-    function createSeat($BID, $TID){
+    function createSeat($BID, $TID, $CLASS){
         include("../connect/db_connect.php");
         
-        $sql="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID";        
+        $sql="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID AND $CLASS='CLASS'";        
         
         $stid = oci_parse($conn, $sql);
         $r= oci_execute($stid);
@@ -52,7 +52,7 @@
             
             for($i=1; $i<=$TOTAL_SEATS; $i++){
                 
-                $sql2="INSERT INTO SEATS (SEAT_NUM, TID, BID) VALUES($i, $TID, $BID )";
+                $sql2="INSERT INTO SEATS (SEAT_NUM, TID, BID, CLASS) VALUES($i, $TID, $BID, '$CLASS' )";
                 
                 $stid2 = oci_parse($conn, $sql2);
                 $r2 =oci_execute($stid2);
