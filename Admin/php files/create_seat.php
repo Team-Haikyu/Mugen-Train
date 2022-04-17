@@ -1,12 +1,13 @@
 <?php
     include("../connect/db_connect.php");
-    $BID= $TID=" ";
+    $BID= $TID= $CLASS=" ";
     if(isset($_POST['submit'])){
         $BID = $_POST['bid'];
         $TID = $_POST['tid'];
+        $CLASS= $_POST['class'];
         require_once 'functions/functionsForAdmin.php';
 
-        createSeat($BID, $TID);
+        createSeat($BID, $TID, $CLASS);
     }
 
 ?>
@@ -145,6 +146,12 @@
                     <label for="fare" class="col-sm-2 col-form-label">Block ID</label>
                     <div class="col-sm-10">
                       <input type="number" name="bid" class="form-control" id="fare" placeholder="Block ID">
+                    </div>
+                  </div>
+                  <div class="form-group row"  style="margin-top: 15px;">
+                    <label for="class" class="col-sm-2 col-form-label">Class</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="class" class="form-control" id="class" placeholder="Class Name">
                     </div>
                   </div>
               </form>
