@@ -1,8 +1,20 @@
+<?php
+    include("../connect/db_connect.php");
+    $EMAIL=" ";
+    if(isset($_POST['submit'])){
+        $EMAIL = $_POST['email'];
+        require_once 'functions/functionsForAdmin.php';
+
+        createAdmin($EMAIL);
+    }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Create Block</title>
+    <title>Add Train</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../../Images/train.png">
     <link rel="stylesheet" href="../CSS files/helper.css">
@@ -93,8 +105,8 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"><i class='bx bx-wrench'></i>
-            &nbsp;Create Block</h1>
+        <h1 class="h2"> <i class='bx bxs-train'></i>
+            &nbsp;Add Train</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -111,44 +123,21 @@
 
       <div class="card" style="margin:8%">
         <div class="card-header">
-          <h3>Add Block
-          <img src="../../Images/block3.png" style="float: right;" height="60px" width="60px" alt="">
+          <h3>Create Admin
+          <img src="../../Images/addtrain1.png" style="float: right;" height="60px" width="60px" alt="">
           </h3>
         </div>
         <div class="card-body">
-            <form>
+            <form action="create_admin.php" method="POST">
                 <div class="form-group row">
-                    <label for="bname" class="col-sm-2 col-form-label">Block Name</label>
+                    <label for="tname" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="bname" placeholder="Block name">
+                      <input type="text" class="form-control"  name="email" id="tname" placeholder="Enter Email">
                     </div>
                   </div>
-                  <div class="form-group row" style="margin-top: 15px;">
-                    <label for="tid" class="col-sm-2 col-form-label">Train ID</label>
-                    <div class="col-sm-10">
-                      <input type="number" class="form-control" id="tid" placeholder="Train ID">
-                    </div>
-                  </div>
-                  <div class="form-group row" style="margin-top: 15px;">
-                    <label for="totalseats" class="col-sm-2 col-form-label">Total Seats</label>
-                    <div class="col-sm-10">
-                      <input type="number" class="form-control" id="totalseats" placeholder="Total Seats">
-                    </div>
-                  </div>
-                  <div class="form-group row"  style="margin-top: 15px;">
-                    <label for="class" class="col-sm-2 col-form-label">Class</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="class" placeholder="Class Name">
-                    </div>
-                  </div>
-                  <div class="form-group row" style="margin-top: 15px;">
-                    <label for="fare" class="col-sm-2 col-form-label">Fare</label>
-                    <div class="col-sm-10">
-                      <input type="number" class="form-control" id="fare" placeholder="Fare">
-                    </div>
-                  </div>
+                 
               </form>
-          <a href="#" class="btn btn-info" style="float: right;margin-top: 10px;">Create</a>
+              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
         </div>
       </div>
 

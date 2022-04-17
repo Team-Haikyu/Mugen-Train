@@ -129,7 +129,7 @@
           </h3>
         </div>
         <div class="card-body">
-            <form>
+            <form action="create_seat.php" method="POST">
             <div class="form-group row" style="margin-top: 15px;">
                     <label for="fare" class="col-sm-2 col-form-label">Train ID</label>
                     <div class="col-sm-10">

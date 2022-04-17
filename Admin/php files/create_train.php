@@ -1,3 +1,15 @@
+<?php
+    include("../connect/db_connect.php");
+    $TNAME=" ";
+    if(isset($_POST['submit'])){
+        $TNAME = $_POST['tname'];
+        require_once 'functions/functionsForAdmin.php';
+
+        createTrain($TNAME);
+    }
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,14 +24,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
- 
-
-
- 
-
-    
 
   </head>
   <body>
@@ -124,7 +128,7 @@
           </h3>
         </div>
         <div class="card-body">
-            <form>
+            <form action="create_train.php" method="POST">
                 <div class="form-group row">
                     <label for="tname" class="col-sm-2 col-form-label">Train Name</label>
                     <div class="col-sm-10">
@@ -133,7 +137,7 @@
                   </div>
                  
               </form>
-          <a href="#" type="submit" class="btn btn-info" style="float: right;margin-top: 10px;">Add Train</a>
+              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
         </div>
       </div>
 
