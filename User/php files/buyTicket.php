@@ -1,3 +1,19 @@
+<?php
+if(isset($_POST['order'])){
+    $source = $_POST['from'];
+    $dest = $_POST['to'];
+    $class = $_POST['class'];
+    $date = $_POST['date'];
+    if(!empty($source) && !empty($dest) && !empty($class) && !empty($date)){
+        $_SESSION['source'] = $source;
+        $_SESSION['dest'] = $dest;
+        $_SESSION['class'] = $class;
+        $_SESSION['date'] = $date;
+
+        header("location: ./trainList.php?source=".$source."&dest=".$dest."&class=".$class."&date=".$date);
+    }
+}
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -109,23 +125,24 @@
                             <div id="tab1">
                                 <div class="submit-form">
                                     <h4>Fill up the Form:</h4>
-                                    <form  action="" >
+                                    <form  action="" method="POST" >
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <fieldset>
                                                     <label for="from">From:</label>
                                                     <select required name='from' >
                                                         <option value="">Select a location...</option>
-                                                        <option value="1">Dhaka</option>
-                                                        <option value="2">Chittagong</option>
-                                                        <option value="3">Sylhet</option>
-                                                        <option value="4">Khulna</option>
-                                                        <option value="5">Mymensingh</option>
-                                                        <option value="6">Cox's Bazar</option>
-                                                        <option value="7">Rajshahi</option>
-                                                        <option value="8">Cumilla</option>
-                                                        <option value="9">Dinajpur</option>
-                                                        <option value="10">Rangpur</option>
+                                                        <option value="Dhaka">Dhaka</option>
+                                                        <option value="Chittagong">Chittagong</option>
+                                                        <option value="Sylhet">Sylhet</option>
+                                                        <option value="Khulna">Khulna</option>
+                                                        <option value="Mymensingh">Mymensingh</option>
+                                                        <option value="Cox's Bazar">Cox's Bazar</option>
+                                                        <option value="Rajshahi">Rajshahi</option>
+                                                        <option value="Cumilla">Cumilla</option>
+                                                        <option value="Dinajpur">Dinajpur</option>
+                                                        <option value="Rangpur">Rangpur</option>
+                                                        <option value="Joydebpur">Joydebpur</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -134,16 +151,17 @@
                                                     <label for="to">To:</label>
                                                     <select required name='to'>
                                                         <option value="">Select a location...</option>
-                                                        <option value="11">Dhaka</option>
-                                                        <option value="12">Chittagong</option>
-                                                        <option value="13">Sylhet</option>
-                                                        <option value="14">Khulna</option>
-                                                        <option value="15">Mymensingh</option>
-                                                        <option value="16">Cox's Bazar</option>
-                                                        <option value="17">Rajshahi</option>
-                                                        <option value="18">Cumilla</option>
-                                                        <option value="19">Dinajpur</option>
-                                                        <option value="20">Rangpur</option>
+                                                        <option value="Dhaka">Dhaka</option>
+                                                        <option value="Chittagong">Chittagong</option>
+                                                        <option value="Sylhet">Sylhet</option>
+                                                        <option value="Khulna">Khulna</option>
+                                                        <option value="Mymensingh">Mymensingh</option>
+                                                        <option value="Cox's Bazar">Cox's Bazar</option>
+                                                        <option value="Rajshahi">Rajshahi</option>
+                                                        <option value="Cumilla">Cumilla</option>
+                                                        <option value="Dinajpur">Dinajpur</option>
+                                                        <option value="Rangpur">Rangpur</option>
+                                                        <option value="Joydebpur">Joydebpur</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -151,22 +169,18 @@
                                             <div class="col-md-6">
                                                 <fieldset>
                                                     <label for="return">Date of Journey:</label>
-                                                    <input name="return" type="date" class="form-control date" id="return" placeholder="Select date..." required="" >
+                                                    <input name="date" type="date" class="form-control date" id="return" placeholder="Select date..." required="" >
                                                 </fieldset>
                                             </div>
                                             <div class="col-md-6" ">
                                                 <fieldset>
                                                     <label for="class" style="margin-bottom: 12px;">Choose a Class:</label>
-                                                    <select required name='to'>
+                                                    <select required name='class'>
                                                         <option value="">Select a class</option>
-                                                        <option value="21">AC_B</option>
-                                                        <option value="22">AC_S</option>
-                                                        <option value="23">SNIGDHA</option>
-                                                        <option value="24">F_CHAIR</option>
-                                                        <option value="25">F_SEAT</option>
-                                                        <option value="26">F_BERTH</option>
-                                                        <option value="27">S_CHAIR</option>
-                                                        <option value="28">SHOVAN</option>
+                                                        <option value="AC">AC</option>
+                                                        <option value="SNIGDHA">SNIGDHA</option>
+                                                        <option value="S_CHAIR">S_CHAIR</option>
+                                                        <option value="SHOVAN">SHOVAN</option>
                                                       
                                                     </select>
                                                 </fieldset>
@@ -175,7 +189,7 @@
                                      
                                             <div class="col-md-6">
                                                 <fieldset>
-                                                    <button type="submit"  class="btn btn-info">Order Ticket Now</button>
+                                                    <button type="submit" name='order' class="btn btn-info">Order Ticket Now</button>
                                                 </fieldset>
                                               
                                             </div>

@@ -1,5 +1,5 @@
 <?php
-
+include '../../connect/db_connect.php';
 
 function searchTrain($source, $dest, $class){
     $sql = "SELECT ROUTE_ID FROM ROUTES WHERE SOURCE = '$source' AND DEST = '$dest' ";

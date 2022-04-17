@@ -1,3 +1,16 @@
+<?php
+    include '../functions/userFunctions.php';
+    $source = $_SESSION['source'];
+    $dest = $_SESSION['dest'];
+    $class = $_SESSION['class'];
+    $date = $_SESSION['date'];
+
+    $stid = searchTrain($source, $dest, $class);
+    oci_execute($stid);
+    
+?>
+
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -146,8 +159,8 @@
 
                           <div class="card" style="margin-top: 20px;">
                             <div class="card-header">
-                              <img src="timer.png" width="50" height="40" alt="">
-                              <img src="traina.png" width="50" height="40" style="float: right ;"  alt="">
+                              <img src="../../Images/timer.png" width="50" height="40" alt="">
+                              <img src="../../Images/traina.png" width="50" height="40" style="float: right ;"  alt="">
                             </div>
                             <div class="card-body">
                                 <!--table starts-->
@@ -196,21 +209,21 @@
                     <!--new-->
                     <div class="row" style="margin-top: 42px;">
                         <div class="col-lg-4">
-                            <img src="choose.jpg" width="60%" height="60%" alt="">
+                            <img src="../../Images/choose.jpg" width="60%" height="60%" alt="">
                             <h2 style="margin-top: 20px;">Select </h2>
                            
                        
                         </div>
                         <!-- /.col-lg-4 -->
                         <div class="col-lg-4">
-                            <img src="tl2.jpg" width="60%" height="60%" alt="">
+                            <img src="../../Images/tl2.jpg" width="60%" height="60%" alt="">
                             <h2 style="margin-top: 20px;">Travel</h2>
                            
                 
                         </div>
                         <!-- /.col-lg-4 -->
                         <div class="col-lg-4">
-                            <img src="tl1.jpg" width="60%" height="60%" alt="">
+                            <img src="../../Images/tl1.jpg" width="60%" height="60%" alt="">
                             <h2 style="margin-top: 20px;">Enjoy</h2>
                             
                           
@@ -225,7 +238,7 @@
                
             <!--FOOTER-->
             <footer class="container" style="background-color: white;" >
-                <img src="logo-modified.png" width="80" height="70" alt="" style="float: left;">
+                <img src="../../Images/logo-modified.png" width="80" height="70" alt="" style="float: left;">
                 <h3 style="float: left;margin-top: 20px;margin-left: 10px;">Mugen Train</h3>
 
                 <h4 style="float: right;margin-top: 20px;">Have a safe journey</h4>

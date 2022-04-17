@@ -21,7 +21,7 @@
                 header("location:create_train.php?error=stmtfailed");
         exit();
     }
-
+    }
     function createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE){
         include("../connect/db_connect.php");
         $sql="INSERT INTO  BLOCKS(BNAME, TID, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', $TID, '$TOTAL_SEATS', '$CLASS', '$FARE')";
@@ -33,7 +33,7 @@
                 header("location:create_block.php?error=stmtfailed");
         exit();
     }
-
+    }
     function createSeat($BID, $TID){
         include("../connect/db_connect.php");
         
@@ -46,7 +46,7 @@
             trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
                     header("location:create_seat.php?error=stmtfailed");
             exit();
-
+        }
         if($row= oci_fetch_assoc($stid)){
             $TOTAL_SEATS=$row['TOTAL_SEATS'];
             
@@ -62,6 +62,7 @@
                     trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
                             header("location:create_seat.php?error=stmtfailed");
                     exit();
+                }   
             }
         }
         $sql3= "SELECT TOTAL_SEATS, TOTAL_BLOCKS FROM TRAINS WHERE TID=$TID";
@@ -75,7 +76,7 @@
             trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
                     header("location:create_seat.php?error=stmtfailed");
             exit(); 
-        
+        }
         $current_seats=$row3['TOTAL_SEATS'];
         $current_blocks=$row3['TOTAL_BLOCKS'];
 
@@ -88,8 +89,8 @@
             trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
                     header("location:create_seat.php?error=stmtfailed");
             exit();    
+        }
     }
-
     function createAdmin($email){
         include("../connect/db_connect.php");
         $sql="UPDATE USERS SET ISADMIN=1 WHERE EMAIL='$email'";
@@ -100,6 +101,7 @@
         trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
                 header("location:create_admin.php?error=stmtfailed");
         exit();
+        }
     }
 
     function createRoute($SOURCE, $DEST, $FARE){
@@ -112,7 +114,7 @@
         trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
                 header("location:create_route.php?error=stmtfailed");
         exit();
+        }
+
     }
-
-
 ?>

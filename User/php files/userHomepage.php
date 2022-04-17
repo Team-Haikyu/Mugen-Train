@@ -58,9 +58,11 @@
                             </li>
                         </ul>
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-                            <a class="btn btn-warning" href="#">Buy Ticket</a>
-                            <p style="font-weight: bold;"><a class="btn btn-warning" href="#">Log in</a>
-                                <a class="btn btn-warning" href="#">Register</a>
+                        <p style="font-weight: bold;">
+                        //add autetication
+                            <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                            <a class="btn btn-warning" href="../../auth/user_logIn.php">Log in</a>
+                                <a class="btn btn-warning" href="../../auth/user_register.php">Register</a>
 
                             </p>
                         </form>
