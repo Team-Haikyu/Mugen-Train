@@ -143,7 +143,7 @@
                   </div>
                  
               </form>
-              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
+              <input name="submit" id="register" style="float:right" class="btn btn-info" type="submit" value="Create">
         </div>
       </div>
 
