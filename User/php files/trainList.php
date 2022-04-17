@@ -146,11 +146,10 @@
                 <div class="row" style="margin-top: 42px;">
                     <div class="col-md-8 col-md-offset-1">
 
-                        
-                        <div class="card" style="margin-top: 20px;">
+                    <div class="card" style="margin-top: 20px;">
                             <div class="card-header">
-                              <img src="../../Images/timer.png" width="50" height="40" alt="">
-                              <img src="../../Images/traina.png" width="50" height="40" style="float: right ;"  alt="">
+                              <img src="timer.png" width="50" height="40" alt="">
+                              <img src="traina.png" width="50" height="40" style="float: right ;"  alt="">
                             </div>
                             <div class="card-body">
                                 <!--table starts-->
@@ -164,6 +163,7 @@
                                         <th scope="col" style="background-color: aqua;">Departure Time</th>
                                         <th scope="col" style="background-color: aqua;">Seats Available</th>
                                         <th scope="col" style="background-color: aqua;">Ticket Price</th>
+                                        <th scope="col" style="background-color: aqua;">Confirm Purchase</th>
                                       </tr>
                                     </thead>
                                     <tbody>
@@ -174,6 +174,7 @@
                                         <td>06:20 AM</td>
                                         <td>10</td>
                                         <td>Tk 550</td>
+                                        <td> <a href="#" class="btn btn-danger" style="float: right;font-size: 14px;">Buy Ticket</a></td>
                                       </tr>
                                       
                                     </tbody>
@@ -184,42 +185,7 @@
                             </div>
                           </div>
 
-                          <div class="card" style="margin-top: 20px;">
-                            <div class="card-header">
-                              <img src="../../Images/timer.png" width="50" height="40" alt="">
-                              <img src="../../Images/traina.png" width="50" height="40" style="float: right ;"  alt="">
-                            </div>
-                            <div class="card-body">
-                                <!--table starts-->
-
-                                <table class="table table-bordered">
-                                    <thead>
-                                      <tr>
-                                        <th scope="col" style="background-color: aqua">Train Information</th>
-                                        <th scope="col" style="background-color: aqua;">From</th>
-                                        <th scope="col" style="background-color: aqua;">To</th>
-                                        <th scope="col" style="background-color: aqua;">Departure Time</th>
-                                        <th scope="col" style="background-color: aqua;">Seats Available</th>
-                                        <th scope="col" style="background-color: aqua;">Ticket Price</th>
-                                      </tr>
-                                    </thead>
-                                    <tbody>
-                                      <tr>
-                                        <th scope="row">PARABAT EXPRESS (709) [F_SEAT]</th>
-                                        <td>Dhaka</td>
-                                        <td>Chittagong</td>
-                                        <td>06:20 AM</td>
-                                        <td>10</td>
-                                        <td>Tk 550</td>
-                                      </tr>
-                                      
-                                    </tbody>
-                                  </table>
-                                  <!--table ends-->
-                               
-                            
-                            </div>
-                          </div>
+                         
                         </section>
                     </div>
                     <div class="col-md-4 col-md-offset-1">

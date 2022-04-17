@@ -2,10 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Dashboard</title>
+    <title>Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../../Images/train.png">
-    <link rel="stylesheet" href="../CSS files/AdminDashboardDesign.css">
+    <link rel="stylesheet" href="../CSS files/helper.css">
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -13,15 +13,23 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
+
+ 
+
+
+ 
+
+    
+
   </head>
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="../../Images/tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <input class="form-control form-control-dark w-100" type="text" placeholder="" aria-label="Search">
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       <a class="nav-link px-3" href="#" style="color: white;">Sign out</a>
@@ -99,8 +107,8 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"><i class='bx bxs-dashboard'></i>
-            &nbsp;Dashboard</h1>
+        <h1 class="h2"><i class='bx bxs-user-detail' ></i>
+            &nbsp;My Profile</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -115,92 +123,49 @@
         </div>
       </div>
 
+      <div class="card" style="margin:8%">
+        <div class="card-header">
+          <h3>Profile
+          <img src="../../Images/admin.png" style="float: right;" height="60px" width="60px" alt="">
+          </h3>
+        </div>
+        <div class="card-body">
+            <form>
+                <div class="form-group row" >
+                    <label for="userid" class="col-sm-2 col-form-label">Admin ID</label>
+                    <div class="col-sm-10">
+                      <input type="number" name="userid" class="form-control" id="userid" placeholder="Admin ID">
+                    </div>
+                  </div>
+                <div class="form-group row" style="margin-top: 15px;">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Admin name">
+                    </div>
+                  </div>
+                 
+                  <div class="form-group row" style="margin-top: 15px;">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row"  style="margin-top: 15px;">
+                    <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number">
+                    </div>
+                  </div>
+             
+              </form>
+          
+        </div>
+      </div>
+
          
 
 
-<div class="row row-cols-1 row-cols-md-4 g-4">
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Total Trains <img src="../../Images/at1.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;20</p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Total Routes <img src="../../Images/routes2.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;103 </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Total Stations <img src="../../Images/stations1.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;22</p>
-        </div>
-      </div>
-    </div> <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Add Train <img src="../../Images/addtrain.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;43 </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Add Block <img src="../../Images/at7.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;56 </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Add Seats <img src="../../Images/seats.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;56 </p>
-        </div>
-      </div>
-    </div>
-    <div class="col">
-      <div class="card" >
-       
-        <div class="card-body" >
-          <h5 class="card-title">Add Route <img src="../../Images/at4.png" height="60px" width="60px" style="float: right;" class="card-img-left" alt="..."></h5>
-          <p class="card-text"></p>
-          <p class="card-text"></p>
-          <p class="card-text" style="font-size: 30px;">&nbsp;56 </p>
-        </div>
-      </div>
-    </div>
-    
-
-  
-  </div>
-
-  <!--Table-->
+ 
   
 
 
