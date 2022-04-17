@@ -189,19 +189,58 @@
                         <img src="../../Images/tn.webp" alt="" height="500px" width="600px" style="margin-left: 40px;">
                     </div>
                 </div>
+                </div>
+                <div class="container marketing" style="margin-top: 20px;">
+                    <h1 style="text-align: center;font-weight: lighter;" ></h1>
+                    <!-- Three columns of text below the carousel -->
+                    <div class="row" style="margin-top: 42px;">
+                      
+                    <!-- /.row -->
+                    <!--new-->
+                    <div class="row" style="margin-top: 42px;">
+                        <div class="col-lg-4">
+                            <img src="../../Images/choose.jpg" width="60%" height="60%" alt="">
+                            <h2 style="margin-top: 20px;">Select </h2>
+                           
+                       
+                        </div>
+                        <!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img src="../../Images/tl2.jpg" width="60%" height="60%" alt="">
+                            <h2 style="margin-top: 20px;">Travel</h2>
+                           
+                
+                        </div>
+                        <!-- /.col-lg-4 -->
+                        <div class="col-lg-4">
+                            <img src="../../Images/tl1.jpg" width="60%" height="60%" alt="">
+                            <h2 style="margin-top: 20px;">Enjoy</h2>
+                            
+                          
+                        </div>
+                    </div>
+                    </div>
+                    </div>
+                    <hr style="color: black;">
                   
                 <!-- /.row -->
                 <!--new-->
                
             <!--FOOTER-->
-            <!-- <footer class="container" >
-                <h3>Connect with us</h3>
-                <ul class="list-unstyled d-flex" >
-                    <li class="ms-3"><a class="link-dark" href="#" ><img src="facebook (2).png" alt=""></a></li>
+            <footer class="container" style="background-color: white;" >
+                <img src="../../Images/logo-modified.png" width="80" height="70" alt="" style="float: left;">
+                <h3 style="float: left;margin-top: 20px;margin-left: 10px;">Mugen Train</h3>
+
+                <h4 style="float: right;margin-top: 20px;">Have a safe journey</h4>
+                <ul class="list-unstyled d-flex" style="float: right;" >
+                    <p>Have a safe journey</p>
+                    <!-- <li class="ms-3"><a class="link-dark" href="#" ><img src="facebook (2).png" alt=""></a></li>
                     <li class="ms-3"><a class="link-dark" href="#" ><img src="discord (1).png" alt=""></a></li>
-                    <li class="ms-3"><a class="link-dark" href="#" ><img src="linkedin (1).png" alt=""></a></li>
+                    <li class="ms-3"><a class="link-dark" href="#" ><img src="linkedin (1).png" alt=""></a></li> -->
                 </ul>
-            </footer> -->
+            </footer>
+                  
+       
         </main>
     </body>
 </html>
