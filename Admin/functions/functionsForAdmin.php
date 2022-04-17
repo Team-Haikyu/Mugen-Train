@@ -1,7 +1,7 @@
 <?php
     include("../connect/db_connect.php");
 
-    function emptyInputSignup($TNAME){
+    function emptyInputCheck($TNAME){
 
         if( empty($TNAME)){
             return true;
@@ -22,9 +22,9 @@
         exit();
     }
 
-    function createBlock($BNAME, $TOTAL_SEATS, $CLASS, $FARE){
+    function createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE){
         include("../connect/db_connect.php");
-        $sql="INSERT INTO  BLOCKS(BNAME, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', '$TOTAL_SEATS', '$CLASS', '$FARE')";
+        $sql="INSERT INTO  BLOCKS(BNAME, TID, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', $TID, '$TOTAL_SEATS', '$CLASS', '$FARE')";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
         if (!$r) {
@@ -41,6 +41,11 @@
         
         $stid = oci_parse($conn, $sql);
         $r= oci_execute($stid);
+        if (!$r) {
+            $m = oci_error($stid); 
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+                    header("location:create_seat.php?error=stmtfailed");
+            exit();
 
         if($row= oci_fetch_assoc($stid)){
             $TOTAL_SEATS=$row['TOTAL_SEATS'];
@@ -59,12 +64,30 @@
                     exit();
             }
         }
+        $sql3= "SELECT TOTAL_SEATS, TOTAL_BLOCKS FROM TRAINS WHERE TID=$TID";
         
-        if (!$r) {
-        $m = oci_error($stid); 
-        trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
-                header("location:create_seat.php?error=stmtfailed");
-        exit();
+        $stid3 = oci_parse($conn, $sql3);
+        $r3= oci_execute($stid3);
+        $row3=oci_fetch_assoc($stid3);
+
+        if (!$r3) {
+            $m = oci_error($stid3); 
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+                    header("location:create_seat.php?error=stmtfailed");
+            exit(); 
+        
+        $current_seats=$row3['TOTAL_SEATS'];
+        $current_blocks=$row3['TOTAL_BLOCKS'];
+
+        $sql4="UPDATE TRAINS SET TOTAL_SEATS=$current_seats+$TOTAL_SEATS, TOTAL_BLOCKS=$current_blocks+1 WHERE TID=$TID";   
+        
+        $stid4 = oci_parse($conn, $sql4);
+        $r4= oci_execute($stid4);
+        if (!$r4) {
+            $m = oci_error($stid4); 
+            trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+                    header("location:create_seat.php?error=stmtfailed");
+            exit();    
     }
 
     function createAdmin($email){
