@@ -141,7 +141,7 @@
                       <input type="text" class="form-control"  name="tname" id="tname" placeholder="Train name">
                     </div>
                   </div>
-              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
+              <input name="submit" id="register"  class="btn btn-info" style="float: right;" type="submit" value="Create">
                  
               </form>
         </div>
