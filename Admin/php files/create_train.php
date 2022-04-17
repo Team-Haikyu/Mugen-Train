@@ -133,7 +133,7 @@
                   </div>
                  
               </form>
-          <a href="#" class="btn btn-info" style="float: right;margin-top: 10px;">Add Train</a>
+          <a href="#" type="submit" class="btn btn-info" style="float: right;margin-top: 10px;">Add Train</a>
         </div>
       </div>
 
