@@ -67,4 +67,29 @@
         exit();
     }
 
+    function createAdmin($email){
+        include("../connect/db_connect.php");
+        $sql="UPDATE USERS SET ISADMIN=1 WHERE EMAIL='$email'";
+        $stid = oci_parse($conn, $sql);
+        $r = oci_execute($stid);
+        if (!$r) {
+        $m = oci_error($stid); 
+        trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
+                header("location:create_admin.php?error=stmtfailed");
+        exit();
+    }
+
+    function createRoute($SOURCE, $DEST, $FARE){
+        include("../connect/db_connect.php");
+        $sql="INSERT INTO ROUTES (SOURCE, DEST, FARE) VALUES ('$SOURCE', '$DEST', $FARE)";
+        $stid = oci_parse($conn, $sql);
+        $r = oci_execute($stid);
+        if (!$r) {
+        $m = oci_error($stid); 
+        trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
+                header("location:create_route.php?error=stmtfailed");
+        exit();
+    }
+
+
 ?>
