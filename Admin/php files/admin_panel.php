@@ -36,6 +36,56 @@
         <ul class="nav flex-column">
         <li class="nav-item " >
 
+<<<<<<< HEAD
+            <a class="nav-link active" style="color: white;" aria-current="page" href="Dashboard.html">
+           
+              <i class='bx bxs-dashboard'></i>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="admin_profile.php" class="nav-link " style="color: white;">
+                <i class='bx bxs-user-detail' ></i>
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="trainList.html" class="nav-link " style="color: white;">
+              <i class='bx bxs-file'></i>
+              Train Lists
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="create_train.php" class="nav-link " style="color: white;">
+              <i class='bx bxs-train'></i>
+              Add Train
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="create_route.php" style="color: white;">
+              <i class='bx bxs-traffic-cone' ></i>
+              Add Route
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="create_block.php" style="color: white;">
+              <i class='bx bx-wrench'></i>
+              Add Block
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="create_seat.php" style="color: white;">
+              <i class='bx bxs-user-circle' ></i>
+              Add Seats
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <i class='bx bxs-log-out-circle'></i>
+              Logout
+            </a>
+          </li>
+=======
 <a class="nav-link active" style="color: white;" aria-current="page" href="admin_panel.php">
 
   <i class='bx bxs-dashboard'></i>
@@ -84,6 +134,7 @@
   Logout
 </a>
 </li>
+>>>>>>> dd73375d16992bbd363eb69dbc5c65b8b6bb0d70
 
         </ul>
         <hr>
