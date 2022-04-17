@@ -145,7 +145,7 @@ function loginAdmin($useremail, $password){
         $_SESSION['userID'] = $userEmailExists["ID"];
         $_SESSION['isAdmin'] = $userEmailExists["ISADMIN"];
 
-        header("location: ./index.php");
+        header("location: ../../../../User/php files/userHomepage.php");
         exit();
     }
 }
