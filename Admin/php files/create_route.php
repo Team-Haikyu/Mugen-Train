@@ -1,10 +1,12 @@
 <?php
-    include("../connect/db_connect.php");
+    
     $SOURCE= $DEST= $FARE=" ";
     if(isset($_POST['submit'])){
         $SOURCE = $_POST['source'];
         $DEST = $_POST['dest'];
         $FARE = $_POST['fare'];
+
+        require_once '../connect/db_connect.php';
         require_once 'functions/functionsForAdmin.php';
 
         createRoute($SOURCE, $DEST, $FARE);

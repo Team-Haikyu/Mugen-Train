@@ -1,8 +1,9 @@
 <?php
-    include("../connect/db_connect.php");
+    
     $TNAME=" ";
     if(isset($_POST['submit'])){
         $TNAME = $_POST['tname'];
+        require_once '../connect/db_connect.php';
         require_once 'functions/functionsForAdmin.php';
 
         createTrain($TNAME);

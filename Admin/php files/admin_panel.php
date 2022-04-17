@@ -43,7 +43,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a  href="trainList.html" class="nav-link " style="color: white;">
+            <a  href="admin_profile.php" class="nav-link " style="color: white;">
                 <i class='bx bxs-user-detail' ></i>
               Profile
             </a>
@@ -55,25 +55,25 @@
             </a>
           </li>
           <li class="nav-item">
-            <a  href="addTrain.html" class="nav-link " style="color: white;">
+            <a  href="create_train.php" class="nav-link " style="color: white;">
               <i class='bx bxs-train'></i>
               Add Train
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="route.html" style="color: white;">
+            <a class="nav-link" href="create_route.php" style="color: white;">
               <i class='bx bxs-traffic-cone' ></i>
               Add Route
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="addBlock.html" style="color: white;">
+            <a class="nav-link" href="create_block.php" style="color: white;">
               <i class='bx bx-wrench'></i>
               Add Block
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="addSeats.html" style="color: white;">
+            <a class="nav-link" href="create_seat.php" style="color: white;">
               <i class='bx bxs-user-circle' ></i>
               Add Seats
             </a>

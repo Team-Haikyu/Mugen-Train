@@ -1,5 +1,5 @@
 <?php
-    include("../connect/db_connect.php");
+
     $BNAME= $TID= $TOTAL_SEATS= $CLASS= $FARE=" ";
     if(isset($_POST['submit'])){
         $BNAME = $_POST['bname'];
@@ -7,6 +7,8 @@
         $TOTAL_SEATS = $_POST['totalseats'];
         $CLASS = $_POST['class'];
         $FARE = $_POST['fare'];
+        
+        require_once '../connect/db_connect.php';
         require_once 'functions/functionsForAdmin.php';
 
         createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE);

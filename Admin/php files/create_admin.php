@@ -1,8 +1,10 @@
 <?php
-    include("../connect/db_connect.php");
+    
     $EMAIL=" ";
     if(isset($_POST['submit'])){
         $EMAIL = $_POST['email'];
+
+        require_once '../connect/db_connect.php';
         require_once 'functions/functionsForAdmin.php';
 
         createAdmin($EMAIL);
