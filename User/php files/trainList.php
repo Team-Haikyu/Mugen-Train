@@ -28,9 +28,11 @@
 
         $availableSeats = $totalBlocks*30 - $seatSold;
         if($availableSeats > 0){
-            $sql3 = "SELECT SID, SEAT_NUM FROM SEATS WHERE SID NOT IN 
+            $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
+                    SID NOT IN 
                     (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
-                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class')"
+                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
+                    WHERE ROWNUM = 1";
         }
         
 
