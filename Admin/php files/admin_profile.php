@@ -52,6 +52,12 @@
           </li>
           <li class="nav-item">
             <a  href="trainList.html" class="nav-link " style="color: white;">
+                <i class='bx bxs-user-detail' ></i>
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="trainList.html" class="nav-link " style="color: white;">
               <i class='bx bxs-file'></i>
               Train Lists
             </a>
@@ -101,8 +107,8 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"> <i class='bx bxs-train'></i>
-            &nbsp;Add Train</h1>
+        <h1 class="h2"><i class='bx bxs-user-detail' ></i>
+            &nbsp;My Profile</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -119,21 +125,40 @@
 
       <div class="card" style="margin:8%">
         <div class="card-header">
-          <h3>Add Train
-          <img src="../../Images/addtrain1.png" style="float: right;" height="60px" width="60px" alt="">
+          <h3>Profile
+          <img src="../../Images/admin.png" style="float: right;" height="60px" width="60px" alt="">
           </h3>
         </div>
         <div class="card-body">
             <form>
-                <div class="form-group row">
-                    <label for="tname" class="col-sm-2 col-form-label">Train Name</label>
+                <div class="form-group row" >
+                    <label for="userid" class="col-sm-2 col-form-label">Admin ID</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control"  name="tname" id="tname" placeholder="Train name">
+                      <input type="number" name="userid" class="form-control" id="userid" placeholder="Admin ID">
+                    </div>
+                  </div>
+                <div class="form-group row" style="margin-top: 15px;">
+                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="Admin name">
                     </div>
                   </div>
                  
+                  <div class="form-group row" style="margin-top: 15px;">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                    </div>
+                  </div>
+                  <div class="form-group row"  style="margin-top: 15px;">
+                    <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
+                    <div class="col-sm-10">
+                      <input type="number" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number">
+                    </div>
+                  </div>
+             
               </form>
-          <a href="#" type="submit" class="btn btn-info" style="float: right;margin-top: 10px;">Add Train</a>
+          
         </div>
       </div>
 
