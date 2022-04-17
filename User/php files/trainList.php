@@ -7,7 +7,12 @@
 
     $stid = searchTrain($source, $dest, $class);
     oci_execute($stid);
-    
+    while($row = oci_fetch_assoc($stid)){
+        $tid = $row['TID'];
+        $arrival = $row['ARRIVAL_TIME'];
+        $departure = $row['DEPARTURE_TIME'];
+        
+    }
 ?>
 
 
