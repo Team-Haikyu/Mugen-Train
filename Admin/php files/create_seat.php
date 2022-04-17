@@ -57,6 +57,12 @@
           </li>
           <li class="nav-item">
             <a  href="trainList.html" class="nav-link " style="color: white;">
+                <i class='bx bxs-user-detail' ></i>
+              Profile
+            </a>
+          </li>
+          <li class="nav-item">
+            <a  href="trainList.html" class="nav-link " style="color: white;">
               <i class='bx bxs-file'></i>
               Train Lists
             </a>
