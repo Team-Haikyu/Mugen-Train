@@ -84,6 +84,25 @@
               Logout
             </a>
           </li>
+          <!--Dont touch here-->
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <i class='bx bxs-log-out-circle'></i>
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <i class='bx bxs-log-out-circle'></i>
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <i class='bx bxs-log-out-circle'></i>
+              
+            </a>
+          </li>
 
         </ul>
         <hr>
