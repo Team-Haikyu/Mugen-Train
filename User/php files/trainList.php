@@ -2,43 +2,56 @@
 session_start();
 
     require '../functions/userFunctions.php';
+    require '../../connect/db_connect.php';
     $source = $_SESSION['source'];
     $dest = $_SESSION['dest'];
     $class = $_SESSION['class'];
     $date = $_SESSION['date'];
 
-    // $stid = searchTrain($source, $dest, $class);
-    // oci_execute($stid);
-    // while($row = oci_fetch_assoc($stid)){
-    //     $tid = $row['TID'];
-    //     $arrival = $row['ARRIVAL_TIME'];
-    //     $departure = $row['DEPARTURE_TIME'];
+    $sql5 = "SELECT ROUTE_ID FROM ROUTES WHERE SOURCE = '$source' AND DEST = '$dest' ";
+    $stid5 = oci_parse($conn, $sql5);
+     oci_execute($stid5);
+
+    $row = oci_fetch_assoc($stid5);
+    $rid = $row['ROUTE_ID'];
+
+    $sql6 = "SELECT * FROM ROUTE_TRAIN_JUNCTION WHERE ROUTE_ID = $rid ";
+    $stid6 = oci_parse($conn, $sql6);
+    oci_execute($stid6);
+
+
+
+
+
+    while($row = oci_fetch_assoc($stid)){
+        $tid = $row['TID'];
+        $arrival = $row['ARRIVAL_TIME'];
+        $departure = $row['DEPARTURE_TIME'];
         
-    //     $sql = "SELECT COUNT(TICKET_ID) AS SOLD FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
-    //                 TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class'";
-    //     $stid = oci_parse($conn, $sql);
-    //     oci_execute($stid);
-    //     $row = oci_fetch_assoc($stid);
-    //     $seatSold = $row['SOLD'];
+        $sql = "SELECT COUNT(TICKET_ID) AS SOLD FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
+                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class'";
+        $stid = oci_parse($conn, $sql);
+        oci_execute($stid);
+        $row = oci_fetch_assoc($stid);
+        $seatSold = $row['SOLD'];
 
-    //     $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
-    //     $stid2 = oci_parse($conn, $sql2);
-    //     oci_execute($stid2);
-    //     $data = oci_fetch_assoc($stid2);
-    //     $totalBlocks = $data['CBID'];
+        $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
+        $stid2 = oci_parse($conn, $sql2);
+        oci_execute($stid2);
+        $data = oci_fetch_assoc($stid2);
+        $totalBlocks = $data['CBID'];
 
 
-    //     $availableSeats = $totalBlocks*30 - $seatSold;
-    //     if($availableSeats > 0){
-    //         $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
-    //                 SID NOT IN 
-    //                 (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
-    //                 TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
-    //                 WHERE ROWNUM = 1";
-    //     }
+        $availableSeats = $totalBlocks*30 - $seatSold;
+        if($availableSeats > 0){
+            $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
+                    SID NOT IN 
+                    (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
+                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
+                    WHERE ROWNUM = 1";
+        }
         
-
-    // }
+     }
 ?>
 
 

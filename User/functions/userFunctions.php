@@ -1,7 +1,9 @@
 <?php
 require '../../connect/db_connect.php';
 
+
 function searchTrain($source, $dest, $class){
+    require '../../connect/db_connect.php';
     $sql = "SELECT ROUTE_ID FROM ROUTES WHERE SOURCE = '$source' AND DEST = '$dest' ";
     $stid = oci_parse($conn, $sql);
     $r = oci_execute($stid);
