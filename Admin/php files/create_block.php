@@ -1,3 +1,21 @@
+<?php
+    include("../connect/db_connect.php");
+    $BNAME= $TID= $TOTAL_SEATS= $CLASS= $FARE=" ";
+    if(isset($_POST['submit'])){
+        $BNAME = $_POST['bname'];
+        $TID = $_POST['tid'];
+        $TOTAL_SEATS = $_POST['totalseats'];
+        $CLASS = $_POST['class'];
+        $FARE = $_POST['fare'];
+        require_once 'functions/functionsForAdmin.php';
+
+        createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE);
+
+    }
+
+?>
+
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,14 +30,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
- 
-
-
- 
-
-    
 
   </head>
   <body>
@@ -108,7 +118,7 @@
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
           </div> -->
-          <form action=""></form>
+          <form></form>
           <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
@@ -124,48 +134,42 @@
           </h3>
         </div>
         <div class="card-body">
-            <form>
+            <form  action="create_block.php" method="POST">
                 <div class="form-group row">
                     <label for="bname" class="col-sm-2 col-form-label">Block Name</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="bname" placeholder="Block name">
+                      <input type="text" name="bname" class="form-control" id="bname" placeholder="Block name">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 15px;">
                     <label for="tid" class="col-sm-2 col-form-label">Train ID</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" id="tid" placeholder="Train ID">
+                      <input type="number" name="tid" class="form-control" id="tid" placeholder="Train ID">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 15px;">
                     <label for="totalseats" class="col-sm-2 col-form-label">Total Seats</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" id="totalseats" placeholder="Total Seats">
+                      <input type="number" name="totalseats" class="form-control" id="totalseats" placeholder="Total Seats">
                     </div>
                   </div>
                   <div class="form-group row"  style="margin-top: 15px;">
                     <label for="class" class="col-sm-2 col-form-label">Class</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" id="class" placeholder="Class Name">
+                      <input type="text" name="class" class="form-control" id="class" placeholder="Class Name">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 15px;">
                     <label for="fare" class="col-sm-2 col-form-label">Fare</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" id="fare" placeholder="Fare">
+                      <input type="number" name="fare" class="form-control" id="fare" placeholder="Fare">
                     </div>
                   </div>
               </form>
-          <a href="#" class="btn btn-info" style="float: right;margin-top: 10px;">Create</a>
+              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
+          
         </div>
       </div>
-
-         
-
-
- 
-  
-
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
