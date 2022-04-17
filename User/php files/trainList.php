@@ -66,7 +66,7 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
 
         <script src="js/vendor/modernizr-2.8.3-respond-1.4.2.min.js"></script>
-        <title>Mugen Train</title>
+        <title>Available List</title>
         <link href="../CSS files/PHomepage Design.css" rel="stylesheet">
     </head>
     <body>
