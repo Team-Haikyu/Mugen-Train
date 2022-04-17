@@ -1,4 +1,5 @@
 <?php
+session_start();
 if(isset($_POST['order'])){
     $source = $_POST['from'];
     $dest = $_POST['to'];

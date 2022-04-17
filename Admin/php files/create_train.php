@@ -3,8 +3,8 @@
     $TNAME=" ";
     if(isset($_POST['submit'])){
         $TNAME = $_POST['tname'];
-        require_once '../connect/db_connect.php';
-        require_once 'functions/functionsForAdmin.php';
+        require '../../connect/db_connect.php';
+        require '../functions/functionsForAdmin.php';
 
         createTrain($TNAME);
     }
@@ -141,9 +141,9 @@
                       <input type="text" class="form-control"  name="tname" id="tname" placeholder="Train name">
                     </div>
                   </div>
+              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
                  
               </form>
-              <input name="submit" id="register" class="btn btn-block login-btn" type="submit" value="Create">
         </div>
       </div>
 

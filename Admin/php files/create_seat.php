@@ -5,9 +5,9 @@
         $BID = $_POST['bid'];
         $TID = $_POST['tid'];
         $CLASS= $_POST['class'];
-        
-        require_once '../connect/db_connect.php';
-        require_once 'functions/functionsForAdmin.php';
+
+        require '../../connect/db_connect.php';
+        require '../functions/functionsForAdmin.php';
 
         createSeat($BID, $TID, $CLASS);
     }

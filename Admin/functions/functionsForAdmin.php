@@ -1,5 +1,5 @@
 <?php
-    include("../connect/db_connect.php");
+    include("../../connect/db_connect.php");
 
     function emptyInputCheck($TNAME){
 
@@ -11,7 +11,7 @@
     }
 
     function createTrain($TNAME){
-        include("../connect/db_connect.php");
+        include("../../connect/db_connect.php");
         $sql="INSERT INTO TRAINS (TNAME) VALUES ('$TNAME')";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
@@ -23,7 +23,7 @@
     }
     }
     function createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE){
-        include("../connect/db_connect.php");
+        include("../../connect/db_connect.php");
         $sql="INSERT INTO  BLOCKS(BNAME, TID, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', $TID, '$TOTAL_SEATS', '$CLASS', '$FARE')";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
@@ -35,7 +35,7 @@
     }
     }
     function createSeat($BID, $TID, $CLASS){
-        include("../connect/db_connect.php");
+        include("../../connect/db_connect.php");
         
         $sql="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID AND $CLASS='CLASS'";        
         
@@ -92,7 +92,7 @@
         }
     }
     function createAdmin($email){
-        include("../connect/db_connect.php");
+        include("../../connect/db_connect.php");
         $sql="UPDATE USERS SET ISADMIN=1 WHERE EMAIL='$email'";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
@@ -105,7 +105,7 @@
     }
 
     function createRoute($SOURCE, $DEST, $FARE){
-        include("../connect/db_connect.php");
+        include("../../connect/db_connect.php");
         $sql="INSERT INTO ROUTES (SOURCE, DEST, FARE) VALUES ('$SOURCE', '$DEST', $FARE)";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
