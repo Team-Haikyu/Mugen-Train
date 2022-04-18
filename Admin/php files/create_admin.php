@@ -93,6 +93,30 @@
 </a>
 </li>
 <li class="nav-item ">
+<a class="nav-link" href="create_seat.php" style="color: white;">
+  <i class='bx bxs-user-circle' ></i>
+  Train Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="create_seat.php" style="color: white;">
+  <i class='bx bxs-user-circle' ></i>
+  Seat Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="create_seat.php" style="color: white;">
+  <i class='bx bxs-user-circle' ></i>
+  Route Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="create_seat.php" style="color: white;">
+  <i class='bx bxs-user-circle' ></i>
+  Block List
+</a>
+</li>
+<li class="nav-item ">
 <a class="nav-link" href="userHomepage.php" style="color: white;">
   <i class='bx bxs-log-out-circle'></i>
   Logout
