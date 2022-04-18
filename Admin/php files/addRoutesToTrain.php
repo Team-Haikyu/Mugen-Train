@@ -1,3 +1,20 @@
+<?php
+$RID= $TID= $DEPTIME= $ARRITIME=" ";
+if(isset($_POST['submit'])){
+    $RID = $_POST['bid'];
+    $TID = $_POST['tid'];
+    $DEPTIME= $_POST['dept_time'];
+    $ARRITIME= $_POST['arrival_time'];
+
+
+    require '../../connect/db_connect.php';
+    require '../functions/functionsForAdmin.php';
+
+    createRoutesToTrain($RID, $TID, $DEPTIME, $ARRITIME);
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,14 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
- 
-
-
- 
-
-    
 
   </head>
   <body>
@@ -158,13 +167,13 @@
                 <div class="form-group row">
                     <label for="routeid" class="col-sm-2 col-form-label">Route ID</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control"  name="routeid" id="routeid" placeholder="Route ID">
+                      <input type="number" class="form-control"  name="rid" id="routeid" placeholder="Route ID">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 12px;"> 
                     <label for="train_id" class="col-sm-2 col-form-label">Train ID</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control"  name="train_id" id="tname" placeholder="Train ID">
+                      <input type="number" class="form-control"  name="tid" id="tname" placeholder="Train ID">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 12px;">
