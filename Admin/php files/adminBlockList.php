@@ -1,24 +1,11 @@
-<?php
-    
-    $TNAME=" ";
-    if(isset($_POST['submit'])){
-        $TNAME = $_POST['tname'];
-        require '../../connect/db_connect.php';
-        require '../functions/functionsForAdmin.php';
-
-        createTrain($TNAME);
-    }
-
-?>
-
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Add Train</title>
+    <title>Block List</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../../Images/train.png">
-    <link rel="stylesheet" href="../CSS files/helper.css">
+    <link rel="stylesheet" href="../CSS files/helper2.css">
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -30,11 +17,15 @@
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="../../Images/tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <input class="form-control form-control-dark w-100" type="text" placeholder="" aria-label="Search">
+   <!--Search-->
+   <form action="">
+    <input class="form-control form-control-dark w-dark" type="text" placeholder="Search" aria-label="Search">
+   </form>
+    <!--Search-->
   <div class="navbar-nav">
     <div class="nav-item text-nowrap">
       <a class="nav-link px-3" href="#" style="color: white;">Sign out</a>
@@ -62,7 +53,7 @@
 </a>
 </li>
 <li class="nav-item">
-<a  href="create_train.php" class="nav-link " style="color: white;">
+<a  href="adminTrainList.php" class="nav-link " style="color: white;">
   <i class='bx bxs-file'></i>
   Train Lists
 </a>
@@ -141,14 +132,14 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"> <i class='bx bxs-train'></i>
-            &nbsp;Add Train</h1>
+        <h1 class="h2"><i class='bx bx-collection'></i>
+            &nbsp;Block Lists</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
             <button type="button" class="btn btn-sm btn-outline-secondary">Export</button>
           </div> -->
-          <form action=""></form>
+          <form action="create_seat.php" method="POST"></form>
           <!-- <button type="button" class="btn btn-sm btn-outline-secondary dropdown-toggle">
             <span data-feather="calendar"></span>
             This week
@@ -157,32 +148,29 @@
         </div>
       </div>
 
-      <div class="card" style="margin:8%">
-        <div class="card-header">
-          <h3>Add Train
-          <img src="../../Images/addtrain1.png" style="float: right;" height="60px" width="60px" alt="">
-          </h3>
-        </div>
-        <div class="card-body">
-            <form action="create_train.php" method="POST">
-                <div class="form-group row">
-                    <label for="tname" class="col-sm-2 col-form-label">Train Name</label>
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control"  name="tname" id="tname" placeholder="Train name">
-                    </div>
-                  </div>
-              <input name="submit" id="register"  class="btn btn-info" style="float: right;" type="submit" value="Create">
-                 
-              </form>
-        </div>
-      </div>
-
-         
-
-
- 
-  
-
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col" style="background-color: aqua;">Block ID</th>
+            <th scope="col" style="background-color: aqua;">Train ID</th>
+            <th scope="col" style="background-color: aqua;">Block Name</th>
+            <th scope="col" style="background-color: aqua;">Total Seats</th>
+            <th scope="col" style="background-color: aqua;">Class</th>
+            <th scope="col" style="background-color: aqua;">Fare</th>
+          </tr>
+        </thead>
+        <tbody >
+          <tr >
+            <td style="text-align: left;">190042</td>
+            <td style="text-align: left;">8354286</td>
+            <td style="text-align: left;">A</td>
+            <td style="text-align: left;">222</td>
+            <td style="text-align: left;">Business</td>
+            <td style="text-align: left;">Th 330</td>
+          </tr>
+          
+        </tbody>
+      </table>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 

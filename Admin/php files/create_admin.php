@@ -16,7 +16,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Add Train</title>
+    <title>Admin Admin</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../../Images/train.png">
     <link rel="stylesheet" href="../CSS files/helper.css">
@@ -90,6 +90,36 @@
 <a class="nav-link" href="create_seat.php" style="color: white;">
   <i class='bx bxs-user-circle' ></i>
   Add Seats
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="adminTrainList.php" style="color: white;">
+<i class='bx bxs-file'></i>
+  Train Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="adminSeatList.php" style="color: white;">
+<i class='bx bx-accessibility'></i>
+  Seat Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="adminRouteList.php" style="color: white;">
+<i class='bx bxs-caret-up-circle'></i>
+  Route Lists
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="addRoutesToTrain.php" style="color: white;">
+<i class='bx bx-shape-triangle'></i>
+  Assign Routes
+</a>
+</li>
+<li class="nav-item ">
+<a class="nav-link" href="adminBlockList.php" style="color: white;">
+<i class='bx bx-collection'></i>
+  Block List
 </a>
 </li>
 <li class="nav-item ">

@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Profile</title>
+    <title>Assign Routes To Train</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="shortcut icon" type="image/x-icon" href="../../Images/train.png">
     <link rel="stylesheet" href="../CSS files/helper.css">
@@ -12,6 +12,14 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+ 
+
+
+ 
+
+    
 
   </head>
   <body>
@@ -36,44 +44,38 @@
         <ul class="nav flex-column">
           <li class="nav-item " >
 
-            <a class="nav-link active" style="color: white;" aria-current="page" href="admin_panel.php">
+            <a class="nav-link active" style="color: white;" aria-current="page" href="Dashboard.html">
            
               <i class='bx bxs-dashboard'></i>
               Dashboard
             </a>
           </li>
           <li class="nav-item">
-            <a  href="admin_profile.php" class="nav-link " style="color: white;">
-                <i class='bx bxs-user-detail' ></i>
-              Profile
-            </a>
-          </li>
-          <li class="nav-item">
-            <a  href="create_train.php" class="nav-link " style="color: white;">
+            <a  href="trainList.html" class="nav-link " style="color: white;">
               <i class='bx bxs-file'></i>
               Train Lists
             </a>
           </li>
           <li class="nav-item">
-            <a  href="create_train.php" class="nav-link " style="color: white;">
+            <a  href="addTrain.html" class="nav-link " style="color: white;">
               <i class='bx bxs-train'></i>
               Add Train
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="create_route.php" style="color: white;">
+            <a class="nav-link" href="route.html" style="color: white;">
               <i class='bx bxs-traffic-cone' ></i>
               Add Route
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="create_block.php" style="color: white;">
+            <a class="nav-link" href="addBlock.html" style="color: white;">
               <i class='bx bx-wrench'></i>
               Add Block
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="create_seat.php" style="color: white;">
+            <a class="nav-link" href="addSeats.html" style="color: white;">
               <i class='bx bxs-user-circle' ></i>
               Add Seats
             </a>
@@ -108,7 +110,7 @@
   Block List
 </a>
 </li>
-           <li class="nav-item ">
+          <li class="nav-item ">
             <a class="nav-link" href="userHomepage.php" style="color: white;">
               <i class='bx bxs-log-out-circle'></i>
               Logout
@@ -129,8 +131,8 @@
 
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
       <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-        <h1 class="h2"><i class='bx bxs-user-detail' ></i>
-            &nbsp;My Profile</h1>
+        <h1 class="h2"><i class='bx bx-shape-triangle'></i>
+            &nbsp;Assign Routes</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <!-- <div class="btn-group me-2">
             <button type="button" class="btn btn-sm btn-outline-secondary">Share</button>
@@ -147,40 +149,40 @@
 
       <div class="card" style="margin:8%">
         <div class="card-header">
-          <h3>Profile
-          <img src="../../Images/admin.png" style="float: right;" height="60px" width="60px" alt="">
+          <h3>Assign Routes
+          <img src="../../Images/maptrain.png" style="float: right;" height="60px" width="60px" alt="">
           </h3>
         </div>
         <div class="card-body">
             <form>
-                <div class="form-group row" >
-                    <label for="userid" class="col-sm-2 col-form-label">Admin ID</label>
+                <div class="form-group row">
+                    <label for="routeid" class="col-sm-2 col-form-label">Route ID</label>
                     <div class="col-sm-10">
-                      <input type="number" name="userid" class="form-control" id="userid" placeholder="Admin ID">
+                      <input type="number" class="form-control"  name="routeid" id="routeid" placeholder="Route ID">
                     </div>
                   </div>
-                <div class="form-group row" style="margin-top: 15px;">
-                    <label for="name" class="col-sm-2 col-form-label">Name</label>
+                  <div class="form-group row" style="margin-top: 12px;"> 
+                    <label for="train_id" class="col-sm-2 col-form-label">Train ID</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="name" id="name" placeholder="Admin name">
+                      <input type="number" class="form-control"  name="train_id" id="tname" placeholder="Train ID">
                     </div>
                   </div>
+                  <div class="form-group row" style="margin-top: 12px;">
+                    <label for="dept_time" class="col-sm-2 col-form-label">Departure Time</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control"  name="dept_time" id="dept_time" placeholder="Departure Time">
+                    </div>
+                  </div>
+                  <div class="form-group row" style="margin-top: 12px;">
+                    <label for="arrival_time" class="col-sm-2 col-form-label">Arrival Time</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control"  name="arrival_time" id="arrival_time" placeholder="Arrival Time">
+                    </div>
+                  </div>
+                  <input name="submit" id="register" class="btn btn-info" style="float:right;margin-top: 10px;" type="submit" value="Assign Route">
                  
-                  <div class="form-group row" style="margin-top: 15px;">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
-                    </div>
-                  </div>
-                  <div class="form-group row"  style="margin-top: 15px;">
-                    <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
-                    <div class="col-sm-10">
-                      <input type="number" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number">
-                    </div>
-                  </div>
-             
               </form>
-          
+
         </div>
       </div>
 
