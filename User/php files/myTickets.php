@@ -128,8 +128,44 @@
                                         <th scope="col" style="background-color: aqua;">Fare</th>
                                       </tr>
                                     </thead>
+
+
                                     <tbody>
-                                      <tr>
+                                    <?php
+                                     require '../functions/userFunctions.php';
+                                     require '../../connect/db_connect.php';
+
+                                     $uid = 1;
+                                     $sql = "SELECT * FROM TICKETS WHERE USER_ID = $uid ";
+                                     $stid = oci_parse($conn, $sql);
+                                     $r= oci_execute($stid);
+                            
+                                     while($row = oci_fetch_assoc($stid)){
+                                        
+                                        $rid = $row['ROUTE_ID'];
+                                        
+                                        $sql2 = "SELECT * FROM ROUTES WHERE ROUTE_ID = $rid ";
+                                        $stid2 = oci_parse($conn, $sql2);
+                                        oci_execute($stid2);
+                                        $rdata = oci_fetch_assoc($stid2);
+                                        $source = $rdata['SOURCE'];
+                                        $dest = $rdata['DEST'];
+
+                                        $view =  "
+                                        <tr>
+                                        <td>".$row['TICKET_ID']."</td>
+                                        <td>".$source."</td>
+                                        <td>".$dest."</td>
+                                        <td>".$row['DEPARTURE_TIME']."</td>
+                                        <td>".$row['FARE']."</td>
+                                      </tr>
+                                        ";  
+                                        echo $view;
+                                     }
+                                    
+                                    
+                                    ?>
+                                      <!-- <tr>
                                         <td>10245</td>
                                         <td>Dhaka</td>
                                         <td>Chittagong</td>
@@ -163,7 +199,7 @@
                                         <td>Chittagong</td>
                                         <td>06:20 AM</td>
                                         <td>Tk 500</td>
-                                      </tr>
+                                      </tr> -->
                                       
                                     </tbody>
                                   </table>
