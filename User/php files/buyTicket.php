@@ -11,7 +11,7 @@ if(isset($_POST['order'])){
         $_SESSION['class'] = $class;
         $_SESSION['date'] = $date;
 
-        header("location: ./trainList.php?source=".$source."&dest=".$dest."&class=".$class."&date=".$date);
+        header("location: ./trainList.php");
     }
 }
 ?>
@@ -136,17 +136,17 @@ if(isset($_POST['order'])){
                                                     <label for="from">From:</label>
                                                     <select required name='from' >
                                                         <option value="">Select a location...</option>
-                                                        <option value="Dhaka">Dhaka</option>
-                                                        <option value="Chittagong">Chittagong</option>
-                                                        <option value="Sylhet">Sylhet</option>
-                                                        <option value="Khulna">Khulna</option>
-                                                        <option value="Mymensingh">Mymensingh</option>
-                                                        <option value="Cox's Bazar">Cox's Bazar</option>
-                                                        <option value="Rajshahi">Rajshahi</option>
-                                                        <option value="Cumilla">Cumilla</option>
-                                                        <option value="Dinajpur">Dinajpur</option>
-                                                        <option value="Rangpur">Rangpur</option>
-                                                        <option value="Joydebpur">Joydebpur</option>
+                                                        <option value="DHAKA">Dhaka</option>
+                                                        <option value="CHITTAGONG">Chittagong</option>
+                                                        <option value="SYLHET">Sylhet</option>
+                                                        <option value="KHULNA">Khulna</option>
+                                                        <option value="MYMENSIGNH">Mymensingh</option>
+                                                        <option value="COX'S BAZAR">Cox's Bazar</option>
+                                                        <option value="RAJSHAHI">Rajshahi</option>
+                                                        <option value="CUMILLA">Cumilla</option>
+                                                        <option value="DINAJPUR">Dinajpur</option>
+                                                        <option value="RANGPUR">Rangpur</option>
+                                                        <option value="JOYDEBPUR">Joydebpur</option>
                                                     </select>
                                                 </fieldset>
                                             </div>
@@ -154,18 +154,18 @@ if(isset($_POST['order'])){
                                                 <fieldset>
                                                     <label for="to">To:</label>
                                                     <select required name='to'>
-                                                        <option value="">Select a location...</option>
-                                                        <option value="Dhaka">Dhaka</option>
-                                                        <option value="Chittagong">Chittagong</option>
-                                                        <option value="Sylhet">Sylhet</option>
-                                                        <option value="Khulna">Khulna</option>
-                                                        <option value="Mymensingh">Mymensingh</option>
-                                                        <option value="Cox's Bazar">Cox's Bazar</option>
-                                                        <option value="Rajshahi">Rajshahi</option>
-                                                        <option value="Cumilla">Cumilla</option>
-                                                        <option value="Dinajpur">Dinajpur</option>
-                                                        <option value="Rangpur">Rangpur</option>
-                                                        <option value="Joydebpur">Joydebpur</option>
+                                                    <option value="">Select a location...</option>
+                                                        <option value="DHAKA">Dhaka</option>
+                                                        <option value="CHITTAGONG">Chittagong</option>
+                                                        <option value="SYLHET">Sylhet</option>
+                                                        <option value="KHULNA">Khulna</option>
+                                                        <option value="MYMENSIGNH">Mymensingh</option>
+                                                        <option value="COX'S BAZAR">Cox's Bazar</option>
+                                                        <option value="RAJSHAHI">Rajshahi</option>
+                                                        <option value="CUMILLA">Cumilla</option>
+                                                        <option value="DINAJPUR">Dinajpur</option>
+                                                        <option value="RANGPUR">Rangpur</option>
+                                                        <option value="JOYDEBPUR">Joydebpur</option>
                                                     </select>
                                                 </fieldset>
                                             </div>

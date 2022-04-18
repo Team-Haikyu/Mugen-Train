@@ -202,8 +202,9 @@
                       <input type="number" name="fare" class="form-control" id="fare" placeholder="Fare">
                     </div>
                   </div>
-              </form>
               <input name="submit" id="register" class="btn btn-info" style="float:right" type="submit" value="Create">
+
+              </form>
           
         </div>
       </div>

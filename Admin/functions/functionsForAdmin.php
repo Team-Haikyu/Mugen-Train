@@ -24,7 +24,7 @@
     }
     function createBlock($BNAME, $TID, $TOTAL_SEATS, $CLASS, $FARE){
         include("../../connect/db_connect.php");
-        $sql="INSERT INTO  BLOCKS(BNAME, TID, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', $TID, '$TOTAL_SEATS', '$CLASS', '$FARE')";
+        $sql="INSERT INTO  BLOCKS(B_NAME, TID, TOTAL_SEATS, CLASS, FARE) VALUES ('$BNAME', $TID, '$TOTAL_SEATS', '$CLASS', '$FARE')";
         $stid = oci_parse($conn, $sql);
         $r = oci_execute($stid);
         if (!$r) {
@@ -37,7 +37,7 @@
     function createSeat($BID, $TID, $CLASS){
         include("../../connect/db_connect.php");
         
-        $sql="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID AND $CLASS='CLASS'";        
+        $sql="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID AND CLASS='$CLASS'";        
         
         $stid = oci_parse($conn, $sql);
         $r= oci_execute($stid);

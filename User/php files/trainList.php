@@ -1,57 +1,11 @@
 <?php
 session_start();
 
-    require '../functions/userFunctions.php';
-    require '../../connect/db_connect.php';
-    $source = $_SESSION['source'];
-    $dest = $_SESSION['dest'];
-    $class = $_SESSION['class'];
-    $date = $_SESSION['date'];
+if(isset($_SESSION['userID'])){
+    $uid = $_SESSION['userID'];
+}
+$uid = 1;
 
-    $sql5 = "SELECT ROUTE_ID FROM ROUTES WHERE SOURCE = '$source' AND DEST = '$dest' ";
-    $stid5 = oci_parse($conn, $sql5);
-     oci_execute($stid5);
-
-    $row = oci_fetch_assoc($stid5);
-    $rid = $row['ROUTE_ID'];
-
-    $sql6 = "SELECT * FROM ROUTE_TRAIN_JUNCTION WHERE ROUTE_ID = $rid ";
-    $stid6 = oci_parse($conn, $sql6);
-    oci_execute($stid6);
-
-
-
-
-
-    while($row = oci_fetch_assoc($stid)){
-        $tid = $row['TID'];
-        $arrival = $row['ARRIVAL_TIME'];
-        $departure = $row['DEPARTURE_TIME'];
-        
-        $sql = "SELECT COUNT(TICKET_ID) AS SOLD FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
-                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class'";
-        $stid = oci_parse($conn, $sql);
-        oci_execute($stid);
-        $row = oci_fetch_assoc($stid);
-        $seatSold = $row['SOLD'];
-
-        $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
-        $stid2 = oci_parse($conn, $sql2);
-        oci_execute($stid2);
-        $data = oci_fetch_assoc($stid2);
-        $totalBlocks = $data['CBID'];
-
-
-        $availableSeats = $totalBlocks*30 - $seatSold;
-        if($availableSeats > 0){
-            $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
-                    SID NOT IN 
-                    (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
-                    TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
-                    WHERE ROWNUM = 1";
-        }
-        
-     }
 ?>
 
 
@@ -168,8 +122,8 @@ session_start();
 
                     <div class="card" style="margin-top: 20px;">
                             <div class="card-header">
-                              <img src="timer.png" width="50" height="40" alt="">
-                              <img src="traina.png" width="50" height="40" style="float: right ;"  alt="">
+                              <img src="../../Images/timer.png" width="50" height="40" alt="">
+                              <img src="../../Images/traina.png" width="50" height="40" style="float: right ;"  alt="">
                             </div>
                             <div class="card-body">
                                 <!--table starts-->
@@ -194,6 +148,7 @@ session_start();
                                         <td>06:20 AM</td>
                                         <td>10</td>
                                         <td>Tk 550</td>
+
                                         <td> <a href="#" class="btn btn-danger" style="float: right;font-size: 14px;">Buy Ticket</a></td>
                                       </tr>
                                       
@@ -203,7 +158,170 @@ session_start();
                                
                             
                             </div>
-                          </div>
+                        </div>
+                        <?php
+
+                            require '../functions/userFunctions.php';
+                            require '../../connect/db_connect.php';
+                            $source = $_SESSION['source'];
+                            $dest = $_SESSION['dest'];
+                            $class = $_SESSION['class'];
+                            $date = $_SESSION['date'];
+
+                            $sql5 = "SELECT ROUTE_ID, FARE FROM ROUTES WHERE SOURCE = '$source' AND DEST = '$dest' ";
+                            $stid5 = oci_parse($conn, $sql5);
+                            oci_execute($stid5);
+
+                            $row = oci_fetch_assoc($stid5);
+                            $rid = $row['ROUTE_ID'];
+                            $rFare = $row['FARE'];
+
+                            $sql6 = "SELECT * FROM ROUTE_TRAIN_JUNCTION WHERE ROUTE_ID = $rid ";
+                            $stid6 = oci_parse($conn, $sql6);
+                            oci_execute($stid6);
+                            
+                        while($row = oci_fetch_assoc($stid6)){
+                            $tid = $row['TID'];
+                            $arrival = $row['ARRIVAL_TIME'];
+                            $departure = $row['DEPARTURE_TIME'];
+
+                            $query = "SELECT TNAME FROM TRAINS WHERE TID = $tid ";
+                            $st = oci_parse($conn, $query);
+                            oci_execute($st);
+                            $tndata = oci_fetch_assoc($st);
+                            $train_name=$tndata['TNAME'];
+                            
+                            $sql1 = "SELECT COUNT(TICKET_ID) AS SOLD FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class'" ;
+                            $stid1 = oci_parse($conn, $sql1);
+                            oci_execute($stid1);
+                            $row = oci_fetch_assoc($stid1);
+                            $seatSold = $row['SOLD'];
+                            //$train_name = $row['TRAIN_NAME'];
+
+                            $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
+                            $stid2 = oci_parse($conn, $sql2);
+                            oci_execute($stid2);
+                            $data = oci_fetch_assoc($stid2);
+                            $totalBlocks = $data['CBID'];
+                            //$bFare = $data['FARE'];
+
+                            if($totalBlocks>0){
+                                $query1 = "SELECT FARE FROM BLOCKS WHERE TID = $tid AND CLASS = '$class' ";
+                                $st1 = oci_parse($conn, $query1);
+                                oci_execute($st1);
+                                $bndata = oci_fetch_assoc($st1);
+                                $bFare=$bndata['FARE'];
+                            }
+
+                            // echo "train ".$tid;
+                            // echo "class ".$class;
+                            // echo "bl ".$totalBlocks;
+                            // echo "sold ".$seatSold;
+                            // echo $date;
+
+                            $total_fare = $bFare + $rFare;
+                            $availableSeats = $totalBlocks*30 - $seatSold;
+                            //echo "seats ".$availableSeats;
+
+                            
+
+                            $diable = 'display:none;';
+                            if($availableSeats > 0){
+                                $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM, BID FROM SEATS WHERE CLASS = '$class' AND 
+                                        SID NOT IN 
+                                        (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
+                                        TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
+                                        WHERE ROWNUM =1";
+                                $stid3 = oci_parse($conn, $sql3);
+                                oci_execute($stid3); 
+                                $sqdt = oci_fetch_assoc($stid3);
+                                $seatnum = $sqdt['SEAT_NUM'];
+                                $sid = $sqdt['SID'];
+                                $bid = $sqdt['BID'];
+
+                                $sql9 = "SELECT B_NAME FROM BLOCKS WHERE BID = $bid ";
+                                $stid9 = oci_parse($conn, $sql9);
+                                oci_execute($stid9);
+                                $bdata = oci_fetch_assoc($stid9);
+                                $bname = $bdata['B_NAME'];
+
+
+                                //echo $seatnum;
+                                $disable  = '';
+
+                            }
+                            
+                            $card = "
+                            <div class='card' style='margin-top: 20px;'>
+                            <div class='card-header'>
+                            <img src='../../Images/timer.png' width='50' height='40' alt=''>
+                            <img src='../../Images/traina.png' width='50' height='40' style='float: right ;'  alt=''>
+                            </div>
+                            <div class='card-body'>
+                                <!--table starts-->
+
+                                <table class='table table-bordered'>
+                                    <thead>
+                                    <tr>
+                                        <th scope='col' style='background-color: aqua'>Train Information</th>
+                                        <th scope='col' style='background-color: aqua;'>From</th>
+                                        <th scope='col' style='background-color: aqua;'>To</th>
+                                        <th scope='col' style='background-color: aqua;'>Departure Time</th>
+                                        <th scope='col' style='background-color: aqua;'>Seats Available</th>
+                                        <th scope='col' style='background-color: aqua;'>Ticket Price</th>
+                                        <th scope='col' style='background-color: aqua;'>Confirm Purchase</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr>
+                                        <th scope='row'>".$train_name." [".$class."]</th>
+                                        <td>".$source."</td>
+                                        <td>".$dest."</td>
+                                        <td>".$departure."</td>
+                                        <td>".$availableSeats."</td>
+                                        <td>".$total_fare."</td>
+                                        <form method='POST'>
+                                            <input type='hidden' name='tid' value='".$tid."'>
+                                            <input type='hidden' name='uid' value='".$uid."'>
+                                            <input type='hidden' name='rid' value='".$rid."'>
+                                            <input type='hidden' name='date' value='".$date."'>
+                                            <input type='hidden' name='departure' value='".$departure."'>
+                                            <input type='hidden' name='arrival' value='".$arrival."'>
+                                            <input type='hidden' name='tname' value='".$train_name."'>
+                                            <input type='hidden' name='bid' value='".$bid."'>
+                                            <input type='hidden' name='bname' value='".$bname."'>
+                                            <input type='hidden' name='sid' value='".$sid."'>
+                                            <input type='hidden' name='snum' value='".$seatnum."'>
+                                            <input type='hidden' name='class' value='".$class."'>
+                                            <input type='hidden' name='fare' value='".$total_fare."'>
+                                            <td> <input class='btn btn-danger' type='submit' name='buy' style='float: right;font-size: 14px;
+                                                                                ".$disable."' value='Buy Ticket'></td>
+                                        </form>
+                                        
+                                    </tr>
+                                    
+                                    </tbody>
+                                </table>
+                                <!--table ends-->
+                                </div>
+                            </div>
+                            ";
+                            echo $card;
+
+
+
+                            if(isset($_POST['buy'])){
+                                $query2 = "INSERT INTO TICKETS(TRAIN_ID, USER_ID, ROUTE_ID, TRAVEL_DATE, ARRIVAL_TIME, DEPARTURE_TIME,
+                                TRAIN_NAME, BID, B_NAME, SID, SEAT_NUM, CLASS, FARE) VALUES($tid, $uid, $rid, TO_DATE('$date', 'YYYY-MM-DD'),
+                                '$arrival', '$departure', '$train_name', $bid , '$bname',$sid , $seatnum, '$class', $total_fare )";
+
+                                $stq = oci_parse($conn, $query2);
+                                oci_execute($stq);
+                                
+                            }
+                                        
+                        }
+                        ?>
 
                          
                         </section>
