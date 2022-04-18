@@ -56,6 +56,9 @@ $uid = 1;
                         </ul>
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                             <!-- <p style="font-weight: bold;"><a class="btn btn-warning" href="#"></a> -->
+                                <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                                <a class="btn btn-warning" href="myTickets.php">My Ticket</a>
+                                <a class="btn btn-warning" href="userProfiles.php">My Profile</a>
                                 <a class="btn btn-warning" href="userHomepage.php">Logout</a>
                             </p>
                         </form>
