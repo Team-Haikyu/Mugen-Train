@@ -117,4 +117,18 @@
         }
 
     }
+
+    function createRouteSToTrain($RID, $TID, $DEPTIME, $ARRITIME){
+        include("../../connect/db_connect.php");
+        $sql="INSERT INTO ROUTE_TRAIN_JUNCTION (ROUTE_ID, TID, DEPARTURE_TIME, ARRIVAL_TIME) VALUES ($RID, $TID, $DEPTIME, $ARRITIME)";
+        $stid = oci_parse($conn, $sql);
+        $r = oci_execute($stid);
+        if (!$r) {
+        $m = oci_error($stid); 
+        trigger_error('Could not execute statement: '. $m['message'] , E_USER_ERROR);
+                header("location:create_route.php?error=stmtfailed");
+        exit();
+        }
+
+    }
 ?>
