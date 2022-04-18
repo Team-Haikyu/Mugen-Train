@@ -1,5 +1,9 @@
 <?php
-    // session_start();
+     session_start();
+
+     if(isset($_SESSION['userID'])){
+       //header("location: http://localhost/dbms/User/php%20files/userHomepage.php");
+     }
     if(isset($_POST["submit"])){
 
         $userEmail = $_POST['email'];

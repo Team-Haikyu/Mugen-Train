@@ -13,7 +13,7 @@ if(isset($_SESSION['userEmail'])){
 if(isset($_SESSION['isAdmin'])){
     unset($_SESSION['isAdmin']);
 }
-header("location: ./user_logIn.php");
+header("location: http://localhost/dbms/User/php%20files/userHomepage.php");
 die;
 
 ?>

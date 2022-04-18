@@ -1,3 +1,17 @@
+<?php
+
+$display = '';
+$else = "display:none;";
+if(isset($_SESSION['userID'])){
+    $uid = $_SESSION['userID'];
+    $display = "display:none;";
+    $else = '';
+}else{
+    //header("location: http://localhost/dbms/User/php%20files/userHomepage.php");
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
     <head>
@@ -45,10 +59,12 @@
                         </ul>
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                             <!-- <p style="font-weight: bold;"><a class="btn btn-warning" href="#"></a> -->
-                            <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
-                            <a class="btn btn-warning" href="myTickets.php">My Ticket</a>
-                            <a class="btn btn-warning" href="userProfiles.php">My Profile</a>
-                                <a class="btn btn-warning" href="userHomepage.php">Logout</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="myTickets.php">My Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="../../auth/logout.php">Log out</a>
+                            <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_logIn.php">Log in</a>
+                                <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_register.php">Register</a>
+
                             </p>
                         </form>
                     </div>
