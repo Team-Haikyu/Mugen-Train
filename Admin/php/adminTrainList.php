@@ -175,8 +175,8 @@
             <tr >
               <td style='text-align: left;'>".$row['TID']."</td>
               <td style='text-align: left;'>".$row['TNAME']."</td>
-              <td style='text-align: left;'>".$row['TOTAL_SEATS']."</td>
               <td style='text-align: left;'>".$row['TOTAL_BLOCKS']."</td>
+              <td style='text-align: left;'>".$row['TOTAL_SEATS']."</td>
             </tr>
               ";
             }
