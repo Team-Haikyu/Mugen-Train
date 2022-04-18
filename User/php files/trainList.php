@@ -1,7 +1,10 @@
 <?php
 session_start();
 
-
+if(isset($_SESSION['userID'])){
+    $uid = $_SESSION['userID'];
+}
+$uid = 1;
 
 ?>
 
@@ -142,6 +145,7 @@ session_start();
                                         <td>06:20 AM</td>
                                         <td>10</td>
                                         <td>Tk 550</td>
+
                                         <td> <a href="#" class="btn btn-danger" style="float: right;font-size: 14px;">Buy Ticket</a></td>
                                       </tr>
                                       
@@ -220,7 +224,7 @@ session_start();
 
                             $diable = 'display:none;';
                             if($availableSeats > 0){
-                                $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM FROM SEATS WHERE CLASS = '$class' AND 
+                                $sql3 = "SELECT * FROM (SELECT SID, SEAT_NUM, BID FROM SEATS WHERE CLASS = '$class' AND 
                                         SID NOT IN 
                                         (SELECT SID FROM TICKETS WHERE TRAIN_ID = $tid AND TRAVEL_DATE = 
                                         TO_DATE('$date', 'YYYY-MM-DD') AND CLASS = '$class') ORDER BY SEAT_NUM )
@@ -229,6 +233,16 @@ session_start();
                                 oci_execute($stid3); 
                                 $sqdt = oci_fetch_assoc($stid3);
                                 $seatnum = $sqdt['SEAT_NUM'];
+                                $sid = $sqdt['SID'];
+                                $bid = $sqdt['BID'];
+
+                                $sql9 = "SELECT B_NAME FROM BLOCKS WHERE BID = $bid ";
+                                $stid9 = oci_parse($conn, $sql9);
+                                oci_execute($stid9);
+                                $bdata = oci_fetch_assoc($stid9);
+                                $bname = $bdata['B_NAME'];
+
+
                                 //echo $seatnum;
                                 $disable  = '';
 
@@ -263,8 +277,24 @@ session_start();
                                         <td>".$departure."</td>
                                         <td>".$availableSeats."</td>
                                         <td>".$total_fare."</td>
-                                        <td> <a href='#' class='btn btn-danger' style='float: right;font-size: 14px;
-                                                                                ".$disable."'>Buy Ticket</a></td>
+                                        <form method='POST'>
+                                            <input type='hidden' name='tid' value='".$tid."'>
+                                            <input type='hidden' name='uid' value='".$uid."'>
+                                            <input type='hidden' name='rid' value='".$rid."'>
+                                            <input type='hidden' name='date' value='".$date."'>
+                                            <input type='hidden' name='departure' value='".$departure."'>
+                                            <input type='hidden' name='arrival' value='".$arrival."'>
+                                            <input type='hidden' name='tname' value='".$train_name."'>
+                                            <input type='hidden' name='bid' value='".$bid."'>
+                                            <input type='hidden' name='bname' value='".$bname."'>
+                                            <input type='hidden' name='sid' value='".$sid."'>
+                                            <input type='hidden' name='snum' value='".$seatnum."'>
+                                            <input type='hidden' name='class' value='".$class."'>
+                                            <input type='hidden' name='fare' value='".$total_fare."'>
+                                            <td> <input class='btn btn-danger' type='submit' name='buy' style='float: right;font-size: 14px;
+                                                                                ".$disable."' value='Buy Ticket'></td>
+                                        </form>
+                                        
                                     </tr>
                                     
                                     </tbody>
@@ -274,9 +304,21 @@ session_start();
                             </div>
                             ";
                             echo $card;
+
+
+
+                            if(isset($_POST['buy'])){
+                                $query2 = "INSERT INTO TICKETS(TRAIN_ID, USER_ID, ROUTE_ID, TRAVEL_DATE, ARRIVAL_TIME, DEPARTURE_TIME,
+                                TRAIN_NAME, BID, B_NAME, SID, SEAT_NUM, CLASS, FARE) VALUES($tid, $uid, $rid, TO_DATE('$date', 'YYYY-MM-DD'),
+                                '$arrival', '$departure', '$train_name', $bid , '$bname',$sid , $seatnum, '$class', $total_fare )";
+
+                                $stq = oci_parse($conn, $query2);
+                                oci_execute($stq);
+                                
+                            }
                                         
-                                            }
-                                        ?>
+                        }
+                        ?>
 
                          
                         </section>

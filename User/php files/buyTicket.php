@@ -11,7 +11,7 @@ if(isset($_POST['order'])){
         $_SESSION['class'] = $class;
         $_SESSION['date'] = $date;
 
-        header("location: ./trainList.php?source=".$source."&dest=".$dest."&class=".$class."&date=".$date);
+        header("location: ./trainList.php");
     }
 }
 ?>
