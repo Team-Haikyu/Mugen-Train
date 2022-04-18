@@ -1,3 +1,19 @@
+<?php
+  session_start();
+  require '../../connect/db_connect.php';
+  $sql="SELECT * FROM USERS WHERE ID=$_SESSION['userID']";
+  $stid = oci_parse($conn, $sql);
+  $r= oci_execute($stid);
+  $row= oci_fetch_assoc($stid);
+  if (!$r) {
+    $m = oci_error($stid); 
+    trigger_error('Could not execute statement: '. $m['message'], E_USER_ERROR);
+            header("location:create_seat.php?error=stmtfailed");
+    exit();
+}
+
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -156,26 +172,26 @@
                 <div class="form-group row" >
                     <label for="userid" class="col-sm-2 col-form-label">Admin ID</label>
                     <div class="col-sm-10">
-                      <input type="number" name="userid" class="form-control" id="userid" placeholder="Admin ID">
+                      <input type="number" name="userid" class="form-control" id="userid" placeholder="<?php echo '$row['ID']' ?>">
                     </div>
                   </div>
                 <div class="form-group row" style="margin-top: 15px;">
                     <label for="name" class="col-sm-2 col-form-label">Name</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control" name="name" id="name" placeholder="Admin name">
+                      <input type="text" class="form-control" name="name" id="name" placeholder="<?php echo '$row['USERNAME']' ?>">
                     </div>
                   </div>
                  
                   <div class="form-group row" style="margin-top: 15px;">
                     <label for="email" class="col-sm-2 col-form-label">Email</label>
                     <div class="col-sm-10">
-                      <input type="email" class="form-control" id="email" name="email" placeholder="Email">
+                      <input type="email" class="form-control" id="email" name="email" placeholder="<?php echo '$row['EMAIL']' ?>">
                     </div>
                   </div>
                   <div class="form-group row"  style="margin-top: 15px;">
                     <label for="mobilenumber" class="col-sm-2 col-form-label">Mobile Number</label>
                     <div class="col-sm-10">
-                      <input type="number" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="Mobile Number">
+                      <input type="number" class="form-control" id="mobilenumber" name="mobilenumber" placeholder="<?php echo '$row['MOBILE']' ?>">
                     </div>
                   </div>
              
