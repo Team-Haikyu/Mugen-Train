@@ -36,7 +36,7 @@
         <ul class="nav flex-column">
         <li class="nav-item " >
 
-            <a class="nav-link active" style="color: white;" aria-current="page" href="Dashboard.html">
+            <a class="nav-link active" style="color: white;" aria-current="page" href="admin_panel.php">
            
               <i class='bx bxs-dashboard'></i>
               Dashboard
@@ -118,19 +118,67 @@
           <!--Dont touch here-->
           <li class="nav-item ">
             <a class="nav-link" href="userHomepage.php" style="color: white;">
-              <i class='bx bxs-log-out-circle'></i>
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
               
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="userHomepage.php" style="color: white;">
-              <i class='bx bxs-log-out-circle'></i>
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
               
             </a>
           </li>
           <li class="nav-item ">
             <a class="nav-link" href="userHomepage.php" style="color: white;">
-              <i class='bx bxs-log-out-circle'></i>
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
+              
+            </a>
+          </li>
+          <li class="nav-item ">
+            <a class="nav-link" href="userHomepage.php" style="color: white;">
+              <!-- <i class='bx bxs-log-out-circle'></i> -->
               
             </a>
           </li>

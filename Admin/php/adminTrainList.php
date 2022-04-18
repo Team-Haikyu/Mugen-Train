@@ -1,3 +1,8 @@
+<?php
+
+
+
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -158,6 +163,25 @@
           </tr>
         </thead>
         <tbody >
+          <?php 
+      
+             require '../../connect/db_connect.php';
+            $sql = "SELECT * FROM TRAINS";
+            $stid = oci_parse($conn, $sql);
+            oci_execute($stid);
+            while($row = oci_fetch_assoc($stid)){
+              echo "
+
+            <tr >
+              <td style='text-align: left;'>".$row['TID']."</td>
+              <td style='text-align: left;'>".$row['TNAME']."</td>
+              <td style='text-align: left;'>".$row['TOTAL_SEATS']."</td>
+              <td style='text-align: left;'>".$row['TOTAL_BLOCKS']."</td>
+            </tr>
+              ";
+            }
+          
+          ?>
           <tr >
             <td style="text-align: left;">190042</td>
             <td style="text-align: left;">Boshumoti</td>

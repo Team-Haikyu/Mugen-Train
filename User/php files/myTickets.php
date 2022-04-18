@@ -149,7 +149,7 @@ if(isset($_SESSION['userID'])){
                                      require '../functions/userFunctions.php';
                                      require '../../connect/db_connect.php';
 
-                                     $uid = 1;
+                                    
                                      $sql = "SELECT * FROM TICKETS WHERE USER_ID = $uid ";
                                      $stid = oci_parse($conn, $sql);
                                      $r= oci_execute($stid);
