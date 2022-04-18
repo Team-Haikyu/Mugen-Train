@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
   <body>
     
 <header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
-  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" style="text-align: center;" href="#"> <img src="../../Images/tr1.png" width="35px" height="35px"  alt=""></i>&nbsp;Mugen Train</a>
   <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -60,7 +60,7 @@ if(isset($_POST['submit'])){
             </a>
           </li>
           <li class="nav-item">
-            <a  href="trainList.html" class="nav-link " style="color: white;">
+            <a  href="adminTrainList.php" class="nav-link " style="color: white;">
               <i class='bx bxs-file'></i>
               Train Lists
             </a>
@@ -72,19 +72,19 @@ if(isset($_POST['submit'])){
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="route.html" style="color: white;">
+            <a class="nav-link" href="create_route.php" style="color: white;">
               <i class='bx bxs-traffic-cone' ></i>
               Add Route
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="addBlock.html" style="color: white;">
+            <a class="nav-link" href="create_block.php" style="color: white;">
               <i class='bx bx-wrench'></i>
               Add Block
             </a>
           </li>
           <li class="nav-item ">
-            <a class="nav-link" href="addSeats.html" style="color: white;">
+            <a class="nav-link" href="create_seat.php" style="color: white;">
               <i class='bx bxs-user-circle' ></i>
               Add Seats
             </a>
@@ -179,13 +179,13 @@ if(isset($_POST['submit'])){
                   <div class="form-group row" style="margin-top: 12px;">
                     <label for="dept_time" class="col-sm-2 col-form-label">Departure Time</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control"  name="dept_time" id="dept_time" placeholder="Departure Time">
+                      <input type="time" class="form-control"  name="dept_time" id="dept_time" placeholder="Departure Time">
                     </div>
                   </div>
                   <div class="form-group row" style="margin-top: 12px;">
                     <label for="arrival_time" class="col-sm-2 col-form-label">Arrival Time</label>
                     <div class="col-sm-10">
-                      <input type="text" class="form-control"  name="arrival_time" id="arrival_time" placeholder="Arrival Time">
+                      <input type="time" class="form-control"  name="arrival_time" id="arrival_time" placeholder="Arrival Time">
                     </div>
                   </div>
                   <input name="submit" id="register" class="btn btn-info" style="float:right;margin-top: 10px;" type="submit" value="Assign Route">

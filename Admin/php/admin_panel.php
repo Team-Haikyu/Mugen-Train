@@ -49,9 +49,9 @@
             </a>
           </li>
           <li class="nav-item">
-            <a  href="trainList.html" class="nav-link " style="color: white;">
+            <a  href="create_train.php" class="nav-link " style="color: white;">
               <i class='bx bxs-file'></i>
-              Train Lists
+              Add Train
             </a>
           </li>
           <li class="nav-item">

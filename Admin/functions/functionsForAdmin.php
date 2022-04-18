@@ -77,10 +77,18 @@
                     header("location:create_seat.php?error=stmtfailed");
             exit(); 
         }
+
+        $sql7="SELECT TOTAL_SEATS FROM BLOCKS WHERE BID=$BID AND TID=$TID AND CLASS='$CLASS'";    
+        $stid5 = oci_parse($conn, $sql7);
+        $r5= oci_execute($stid5);   
+        $row5= oci_fetch_assoc($stid5) ;
+        $TOTAL_SEATS2=$row5['TOTAL_SEATS'];
+
+
         $current_seats=$row3['TOTAL_SEATS'];
         $current_blocks=$row3['TOTAL_BLOCKS'];
 
-        $sql4="UPDATE TRAINS SET TOTAL_SEATS=$current_seats+$TOTAL_SEATS, TOTAL_BLOCKS=$current_blocks+1 WHERE TID=$TID";   
+        $sql4="UPDATE TRAINS SET TOTAL_SEATS=$current_seats+$TOTAL_SEATS2, TOTAL_BLOCKS=$current_blocks+1 WHERE TID=$TID";   
         
         $stid4 = oci_parse($conn, $sql4);
         $r4= oci_execute($stid4);
