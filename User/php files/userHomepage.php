@@ -135,7 +135,7 @@ if(isset($_SESSION['userID'])){
             </div>
             <!--Health Services-->
             <div class="container marketing">
-                <h1 style="text-align: center;font-weight: lighter;">Our Services</h1>
+                <h1 style="text-align: center;font-weight: bolder;">Our Services</h1>
                 <!-- Three columns of text below the carousel -->
                 <div class="row" style="margin-top: 42px;">
                   

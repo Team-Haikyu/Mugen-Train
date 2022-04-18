@@ -134,7 +134,7 @@ if(isset($_POST['order'])){
             </div>
             <!--Health Services-->
             <div class="container marketing">
-                <h1 style="text-align: center;font-weight: lighter;">Buy Ticket</h1>
+                <h1 style="text-align: center;font-weight: bolder;">Buy Ticket</h1>
                 <!-- Three columns of text below the carousel -->
                 <div class="row" style="margin-top: 42px;">
                     <div class="col-md-5 col-md-offset-1">
