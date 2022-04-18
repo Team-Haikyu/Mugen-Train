@@ -66,6 +66,7 @@ session_start();
                         <p style="font-weight: bold;">
                         //add autetication
                             <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                            <a class="btn btn-warning" href="myTickets.php">My Ticket</a>
                             <a class="btn btn-warning" href="../../auth/user_logIn.php">Log in</a>
                                 <a class="btn btn-warning" href="../../auth/user_register.php">Register</a>
 
