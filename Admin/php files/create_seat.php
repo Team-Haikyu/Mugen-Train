@@ -156,8 +156,9 @@
                       <input type="text" name="class" class="form-control" id="class" placeholder="Class Name">
                     </div>
                   </div>
-              </form>
               <input name="submit" id="register" class="btn btn-info" style="float:right" type="submit" value="Create">
+
+              </form>
           
         </div>
       </div>
