@@ -1,3 +1,16 @@
+<?php
+session_start();
+$display = '';
+$else = "display:none;";
+if(isset($_SESSION['userID'])){
+    $uid = $_SESSION['userID'];
+    $display = "display:none;";
+    $else = '';
+}
+// else{
+    //header("location: ../../userHomepage.php");
+// }
+?>
 <!doctype html>
 <html lang="en">
     <head>
@@ -45,10 +58,11 @@
                         </ul>
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                             <!-- <p style="font-weight: bold;"><a class="btn btn-warning" href="#"></a> -->
-                            <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
-                            <a class="btn btn-warning" href="myTickets.php">My Ticket</a>
-                            <a class="btn btn-warning" href="userProfiles.php">My Profile</a>
-                                <a class="btn btn-warning" href="userHomepage.php">Logout</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="myTickets.php">My Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="../../auth/logout.php">Log out</a>
+                            <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_logIn.php">Log in</a>
+                                <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_register.php">Register</a>
                             </p>
                         </form>
                     </div>
@@ -128,8 +142,44 @@
                                         <th scope="col" style="background-color: aqua;">Fare</th>
                                       </tr>
                                     </thead>
+
+
                                     <tbody>
-                                      <tr>
+                                    <?php
+                                     require '../functions/userFunctions.php';
+                                     require '../../connect/db_connect.php';
+
+                                     $uid = 1;
+                                     $sql = "SELECT * FROM TICKETS WHERE USER_ID = $uid ";
+                                     $stid = oci_parse($conn, $sql);
+                                     $r= oci_execute($stid);
+                            
+                                     while($row = oci_fetch_assoc($stid)){
+                                        
+                                        $rid = $row['ROUTE_ID'];
+                                        
+                                        $sql2 = "SELECT * FROM ROUTES WHERE ROUTE_ID = $rid ";
+                                        $stid2 = oci_parse($conn, $sql2);
+                                        oci_execute($stid2);
+                                        $rdata = oci_fetch_assoc($stid2);
+                                        $source = $rdata['SOURCE'];
+                                        $dest = $rdata['DEST'];
+
+                                        $view =  "
+                                        <tr>
+                                        <td>".$row['TICKET_ID']."</td>
+                                        <td>".$source."</td>
+                                        <td>".$dest."</td>
+                                        <td>".$row['DEPARTURE_TIME']."</td>
+                                        <td>".$row['FARE']."</td>
+                                      </tr>
+                                        ";  
+                                        echo $view;
+                                     }
+                                    
+                                    
+                                    ?>
+                                      <!-- <tr>
                                         <td>10245</td>
                                         <td>Dhaka</td>
                                         <td>Chittagong</td>
@@ -163,7 +213,7 @@
                                         <td>Chittagong</td>
                                         <td>06:20 AM</td>
                                         <td>Tk 500</td>
-                                      </tr>
+                                      </tr> -->
                                       
                                     </tbody>
                                   </table>

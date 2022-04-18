@@ -1,5 +1,16 @@
 <?php
 session_start();
+$display = '';
+$else = "display:none;";
+if(isset($_SESSION['userID'])){
+    $uid = $_SESSION['userID'];
+    $display = "display:none;";
+    $else = '';
+}else{
+    //header("location: ../../userHomepage.php");
+}
+
+
 if(isset($_POST['order'])){
     $source = $_POST['from'];
     $dest = $_POST['to'];
@@ -62,10 +73,12 @@ if(isset($_POST['order'])){
                         </ul>
                         <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
                             <!-- <p style="font-weight: bold;"><a class="btn btn-warning" href="#"></a> -->
-                            <a class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
-                            <a class="btn btn-warning" href="myTickets.php">My Ticket</a>
-                            <a class="btn btn-warning" href="userProfiles.php">My Profile</a>
-                                <a class="btn btn-warning" href="userHomepage.php">Logout</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="buyTicket.php">Buy Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="myTickets.php">My Ticket</a>
+                            <a style="<?php echo $else ?>" class="btn btn-warning" href="../../auth/logout.php">Log out</a>
+                            <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_logIn.php">Log in</a>
+                                <a style="<?php echo $display ?>" class="btn btn-warning" href="../../auth/user_register.php">Register</a>
+
                             </p>
                         </form>
                     </div>
@@ -121,7 +134,7 @@ if(isset($_POST['order'])){
             </div>
             <!--Health Services-->
             <div class="container marketing">
-                <h1 style="text-align: center;font-weight: lighter;">Buy Ticket</h1>
+                <h1 style="text-align: center;font-weight: bolder;">Buy Ticket</h1>
                 <!-- Three columns of text below the carousel -->
                 <div class="row" style="margin-top: 42px;">
                     <div class="col-md-5 col-md-offset-1">

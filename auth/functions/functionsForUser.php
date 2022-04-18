@@ -144,12 +144,12 @@ function loginAdmin($useremail, $password){
         $_SESSION['userEmail'] = $userEmailExists["EMAIL"];
         $_SESSION['userID'] = $userEmailExists["ID"];
         $_SESSION['isAdmin'] = $userEmailExists["ISADMIN"];
-        if($_SESSION['isAdmin']=1){
-            header("location: ../../../../Admin/php files/admin_panel.php");
-            exit;
+        if($_SESSION['isAdmin'] == 1){
+            header("location: http://localhost/dbms/Admin/php/admin_panel.php");
+            exit();
         }
 
-        header("location: ../../../../User/php files/userHomepage.php");
+        header("location: http://localhost/dbms/User/php%20files/userHomepage.php");
         exit();
     }
 }
