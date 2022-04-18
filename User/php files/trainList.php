@@ -206,11 +206,12 @@ if(isset($_SESSION['userID'])){
                             $seatSold = $row['SOLD'];
                             //$train_name = $row['TRAIN_NAME'];
 
-                            $sql2= "SELECT COUNT(BID) AS CBID FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
+                            $sql2= "SELECT COUNT(BID) AS CBID, sum(TOTAL_SEATS) as STCNT FROM BLOCKS WHERE TID = $tid and CLASS = '$class' ";
                             $stid2 = oci_parse($conn, $sql2);
                             oci_execute($stid2);
                             $data = oci_fetch_assoc($stid2);
                             $totalBlocks = $data['CBID'];
+                            $totalseats = $data['STCNT'];
                             //$bFare = $data['FARE'];
 
                             if($totalBlocks>0){
@@ -228,7 +229,7 @@ if(isset($_SESSION['userID'])){
                             // echo $date;
 
                             $total_fare = $bFare + $rFare;
-                            $availableSeats = $totalBlocks*30 - $seatSold;
+                            $availableSeats = $totalseats - $seatSold;
                             //echo "seats ".$availableSeats;
 
                             
