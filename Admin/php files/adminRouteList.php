@@ -101,6 +101,12 @@
 </a>
 </li>
 <li class="nav-item ">
+<a class="nav-link" href="addRoutesToTrain.php" style="color: white;">
+<i class='bx bx-shape-triangle'></i>
+  Assign Routes
+</a>
+</li>
+<li class="nav-item ">
 <a class="nav-link" href="adminBlockList.php" style="color: white;">
 <i class='bx bx-collection'></i>
   Block List
