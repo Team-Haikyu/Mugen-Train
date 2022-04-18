@@ -95,25 +95,25 @@
 </a>
 </li>
 <li class="nav-item ">
-<a class="nav-link" href="create_seat.php" style="color: white;">
+<a class="nav-link" href="adminTrainList.php" style="color: white;">
   <i class='bx bxs-user-circle' ></i>
   Train Lists
 </a>
 </li>
 <li class="nav-item ">
-<a class="nav-link" href="create_seat.php" style="color: white;">
+<a class="nav-link" href="adminSeatList.php" style="color: white;">
   <i class='bx bxs-user-circle' ></i>
   Seat Lists
 </a>
 </li>
 <li class="nav-item ">
-<a class="nav-link" href="create_seat.php" style="color: white;">
+<a class="nav-link" href="adminRouteList.php" style="color: white;">
   <i class='bx bxs-user-circle' ></i>
   Route Lists
 </a>
 </li>
 <li class="nav-item ">
-<a class="nav-link" href="create_seat.php" style="color: white;">
+<a class="nav-link" href="adminBlockList.php" style="color: white;">
   <i class='bx bxs-user-circle' ></i>
   Block List
 </a>
